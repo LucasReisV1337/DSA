@@ -14,6 +14,20 @@ ponteiro (next) → endereço do próximo nó
 
 [10 | 1001] → [25 | 8884] → [7 | 2390] → [42 | null]
 
+Operações principais
+| Operação                           | Descrição               | Complexidade |
+| ---------------------------------- | ----------------------- | ------------ |
+| Access by index                    | Percorrer até posição i | **O(n)**     |
+| Search                             | Procurar valor          | **O(n)**     |
+| Insert at head                     | Inserir no início       | **O(1)**     |
+| Insert at tail (sem ponteiro tail) | Percorrer até final      | **O(n)**     |
+| Insert at tail (com tail)          | Inserir direto          | **O(1)**     |
+| Insert after node                  | Já tenho nó             | **O(1)**     |
+| Remove head                        | Remover primeiro        | **O(1)**     |
+| Remove after node                  | Já tenho anterior       | **O(1)**     |
+| Remove by value                    | Precisa procurar        | **O(n)**     |
+
+
 Diferente do array, a linked list não possui acesso direto por índice, pois não existe cálculo matemático de posição em memória.
 Para acessar um elemento é necessário percorrer os nós sequencialmente, tornando o acesso O(n) e menos previsível para leitura.
 
@@ -42,6 +56,20 @@ next → endereço do próximo nó
 Estrutura do nó:
 [prev | data | next]
 null ← A ⇄ B ⇄ C ⇄ D → null
+
+Operações principais
+| Operação                  | Complexidade |
+| ------------------------- | ------------ |
+| Access by index           | **O(n)**     |
+| Search                    | **O(n)**     |
+| Insert at head            | **O(1)**     |
+| Insert at tail (com tail) | **O(1)**     |
+| Remove head               | **O(1)**     |
+| Remove tail               | **O(1)**     |
+| Remove node conhecido     | **O(1)**     |
+| Insert before node        | **O(1)**     |
+| Insert after node         | **O(1)**     |
+
 
 Vantagens:
 
@@ -76,6 +104,15 @@ Não existe um “fim” explícito
 É possível iniciar o percurso em qualquer nó
 
 Pode ser singly ou doubly
+
+Operações principais
+| Operação                      | Complexidade |
+| ----------------------------- | ------------ |
+| Percorrer N elementos         | **O(n)**     |
+| Inserir após tail             | **O(1)**     |
+| Remover após tail             | **O(1)**     |
+| Rotacionar lista (mover head) | **O(1)**     |
+
 
 Uso comum:
 
