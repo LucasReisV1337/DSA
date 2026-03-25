@@ -29,3 +29,19 @@ Não use quando precisa apenas:
 - ordenar → BST
 - prioridade → Heap
 - sequência → Array
+
+---
+
+## 📚 Tabela de Exercícios / Exercises
+
+| # | Título / Title | Dificuldade | Status | Arquivo | LeetCode |
+|:-:|-------|-----------|--------|---------|----------|
+| 133 | Clone Graph | Medium | ✅ | [133.Clone_Graph.py](133.Clone_Graph.py) | [Link](https://leetcode.com/problems/clone-graph/) |
+| 743 | Network Delay Time (Dijkstra) | Medium | ✅ | [743.Network_Delay_Time.py](743.Network_Delay_Time.py) | [Link](https://leetcode.com/problems/network-delay-time/) |
+| — | Dijkstra Algorithm | Algorithm | ✅ | [dijkstra.py](dijkstra.py) | — |
+
+---
+
+## 🔧 Implementações Base / Base Implementations
+
+Veja [dijkstra.py](dijkstra.py) para implementação do algoritmo de caminho mínimo.

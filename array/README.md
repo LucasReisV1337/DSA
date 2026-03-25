@@ -2,6 +2,8 @@ Um array é uma estrutura de dados linear e indexada que armazena elementos de t
 
 Ele não é apenas uma lista lógica, é um bloco contínuo de memória acessado por cálculo matemático de endereço.
 
+Nos materiais teóricos desta pasta, o array aparece também como base para lista linear sequencial, busca linear ordenada, busca binária, deque circular e exercícios de palíndromo.
+
 
 Operações fundamentais do Array
 
@@ -40,7 +42,55 @@ Portanto o acesso ou altereção de um valor pelo índice é Big O(1), inserir/r
 Arrays são ideais quando a coleção é estruturalmente estável e o padrão dominante é leitura sequencial,
 acesso indexado, ou edicao de um valor.
 
-Eles não são eficientes para inserções e remoções frequentes, pois exigem deslocamento de elementos. Ou seja, seria necessário alocar um novo espaco na memória caso eu queira inserir ou remover um elemento de um array, sendo necessário a linguagem criar outro array no novo espacamento da memória.
+Isso inclui listas com inclusão e exclusão em vetor, busca por interpolação e manipulação de matrizes.
 
-O array brilha em processamento de dados: agregações, filtros, cálculos e varreduras. etc.
-Quando vc tem dados salvos, e precisa gerar resultados através deles.
+**Arrays excel in stable collections with sequential reading, indexed access, or value editing.**
+
+---
+
+## 🎯 Quando Usar? / When to Use?
+
+### ✅ Use Arrays quando:
+- Acesso indexado é frequente e crítico para performance
+- Coleção é **estruturalmente estável** (tamanho fixo ou predito)
+- Processamento **sequencial, agregações, filtros** dominam
+- Memória contígua é vantaja (cache efficiency)
+
+### ❌ Não use Arrays quando:
+- Muitas **inserções/remoções frequentes** no meio
+- Tamanho é **altamente variável** → use Linked List
+- Precisa ser dinâmica → use List (Python), Vector (C++)
+
+---
+
+## 📚 Tabela de Problemas / Problems
+
+Nota: Arrays são estruturas básicas. Exercícios de array geralmente aparecem em outros contextos (sliding window, two pointer, etc).
+
+Veja em:
+- [two-pointer/](../algorithms/two-pointer/) — Problemas em arrays
+- [sliding-window/](../algorithms/sliding-window/) — Subarrays
+- [sorting/](../sorting/) — Ordenação de arrays
+- [algorithms/text-search/](../algorithms/text-search/) — Padrões em texto quando o array representa caracteres
+
+## 🧩 Material Teórico Relacionado
+
+- [01-arq-sequenciais.pdf](01-arq-sequenciais.pdf)
+- [4 - lista Linear - Alocação Sequencial.pdf](4%20-%20lista%20Linear%20-%20Alocação%20Sequencial.pdf)
+- [Lista de Exercícios - Estruturas de Dados - Lista Linear com alocação sequencial.pdf](Lista%20de%20Exercícios%20-%20Estruturas%20de%20Dados%20-%20Lista%20Linear%20com%20alocação%20sequencial.pdf)
+- [mata54-lista01.pdf](mata54-lista01.pdf)
+
+---
+
+## 💡 Conceitos Principais / Key Concepts
+
+### Acesso O(1) por Endereço
+```
+endereço = endereço_base + (índice × tamanho_do_tipo)
+```
+
+### Inserção/Remoção O(n)
+Requer deslocamento ou reallocation de memória.
+
+### Cache Locality
+Arrays em memória contígua → melhor cache hit ratio que Linked Lists.

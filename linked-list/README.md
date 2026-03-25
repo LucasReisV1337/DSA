@@ -38,14 +38,27 @@ Por outro lado, justamente por não depender de posições contínuas em memóri
 Dessa forma, linked lists levam vantagem quando:
 
 - há muitas inserções/remoções no meio
-
 - o tamanho é altamente variável
-
 - não há necessidade frequente de acesso aleatório
 
--------------------------------------------------------------------------
+---
 
-Doubly Linked List
+## 📚 Tabela de Exercícios / Exercises
+
+### Single Linked List
+
+| # | Título / Title | Tipo | Status | Arquivo | LeetCode |
+|:-:|-------|------|--------|---------|----------|
+| — | Linked List (Implementação Base) | Implementation | ✅ | [linked-list.py](linked-list.py) | — |
+| — | Cycle Detection | Pattern | ✅ | [cycle-of-linked-list.py](cycle-of-linked-list.py) | [Link](https://leetcode.com/problems/linked-list-cycle/) |
+| — | Middle of List | Pattern | ✅ | [middle-of-linked-list.py](middle-of-linked-list.py) | [Link](https://leetcode.com/problems/middle-of-the-linked-list/) |
+| — | Reverse List | Pattern | ✅ | [reverse-linked-list.py](reverse-linked-list.py) | [Link](https://leetcode.com/problems/reverse-linked-list/) |
+
+---
+
+## 🔧 Implementações Base / Base Implementations
+
+Veja [linked-list.py](linked-list.py) para implementação completa com operações fundamentais.
 
 A Doubly Linked List (lista duplamente encadeada) é uma variação em que cada nó possui dois ponteiros:
 

@@ -27,8 +27,64 @@ Relacao com outras estruturas
 
 deque é muito usada em problemas que utilizam Sliding Window (janela deslizante) pois ao instanciar os ponteiros (head e tail), é criado uma espécie de "janela" e ser movida para os lados ao remover ou avancar cada ponteiro
 
-Problemas clássicos de algoritmo:
+**Deque is heavily used in Sliding Window problems — the head/tail pointers form a "window" that slides by removing/advancing.**
 
-máximo em subarray k, monotonic queue, média móvel
+Nos PDFs de teoria, a deque aparece como lista linear sequencial com inclusão nas extremidades e uso de vetor circular.
 
-Aqui ela brilha porque você remove de um lado e adiciona do outro o tempo todo.
+---
+
+## 🎯 Quando Usar? / When to Use?
+
+### ✅ Use Deque quando:
+- **Sliding Window** — expanda/contraia dos dois lados
+- Precisa de **Stack + Queue** simultaneamente
+- **Monotonic Deque** — manter máximos/mínimos de subarrays
+- **Buffer circular** que pode ser expandido dos dois lados
+
+### ❌ Não use Deque quando:
+- Só precisa de Stack (use Stack simples)
+- Só precisa de Queue (use Queue simples)
+- Acesso aleatório é crítico → use Array
+
+## 🔧 Implementações / Implementations
+
+- **Sequencial/circular**: índices de frente e fim em vetor, reaproveitando espaço.
+- **Encadeada**: nós com ponteiros para as extremidades.
+
+## 📚 Material Teórico Relacionado
+
+- [5 - Pilhas e filas em alocação sequencial.pdf](5%20-%20Pilhas%20e%20filas%20em%20alocação%20sequencial.pdf)
+
+---
+
+## 📚 Tabela de Exercícios / Exercises
+
+Deque é geralmente usada **como estrutura auxiliar** em técnicas como Sliding Window.
+
+Veja em:
+- [algorithms/sliding-window/](../algorithms/sliding-window/) — Monotonic queue com deque
+
+---
+
+## 💡 Padrões Comuns / Common Patterns
+
+### Monotonic Deque (Maximum/Minimum in Subarray)
+```python
+# Manter índices em deque, removendo do front if out of window
+# Removendo do back if elemento maior chega
+# Resultado: front do deque é sempre o máximo/mínimo
+```
+
+### Sliding Window Template
+```python
+from collections import deque
+dq = deque()
+
+for i in range(len(arr)):
+    # Remove elementos fora da janela
+    while dq and dq[0][1] <= i - window_size:
+        dq.popleft()
+    
+    # Processa elemento
+    # Adiciona resultado
+```
