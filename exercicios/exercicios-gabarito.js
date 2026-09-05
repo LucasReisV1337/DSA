@@ -1,8 +1,8 @@
 /*
 BATERIA COMPLETA DE DSA EM JAVASCRIPT
 
-Objetivo: sair dos fundamentos de lógica/Big-O e avançar até estruturas e algoritmos de nível Hard/Extreme Hard.
-Total de exercícios: 128
+Objetivo: sair do JavaScript/lógica mais básico, consolidar os principais padrões de DSA e avançar até estruturas e algoritmos de nível Hard/Extreme Hard.
+Total de exercícios: 168
 
 COMO USAR NO VS CODE
 1. Abra este .txt e altere o Language Mode para JavaScript.
@@ -20,9 +20,8 @@ REGRA DE PROGRESSÃO SUGERIDA
 ============================================================
 */
 
-
 // ============================================================
-// 01 — FUNDAMENTOS, LÓGICA E BIG-O
+// 01 — JAVASCRIPT BÁSICO, LÓGICA E BIG-O
 // ============================================================
 
 // #region EXERCÍCIO 001 — Somar dois números
@@ -142,7 +141,48 @@ function maxOfThree(a, b, c) {
 console.log(maxOfThree(7, 3, 9)); // Esperado: 9
 // #endregion
 
-// #region EXERCÍCIO 004 — Contar de 1 até N
+// #region EXERCÍCIO 004 — Classificar número por sinal
+/*
+CATEGORIA: Fundamentos / Condicionais
+DIFICULDADE: Extremo Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar if/else encadeado e retorno de strings.
+
+ENTRADA DE EXEMPLO:
+classifyNumber(-7)
+
+SAÍDA ESPERADA:
+"negative"
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Testar primeiro zero e depois comparar o número com zero para decidir entre positivo e negativo.
+
+EDGE CASES ESPERADOS:
+zero; positivos; negativos
+
+COMPLEXIDADE DE TEMPO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(1) porque há apenas um número fixo de comparações.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque nenhuma estrutura cresce com a entrada.
+*/
+function classifyNumber(n) {
+  if (n === 0) return "zero";
+  if (n > 0) return "positive";
+  return "negative";
+}
+
+console.log(classifyNumber(-7)); // Esperado: "negative"
+// #endregion
+
+// #region EXERCÍCIO 005 — Contar de 1 até N
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Extremo Easy
@@ -183,7 +223,92 @@ function rangeToN(n) {
 console.log(rangeToN(5)); // Esperado: [1, 2, 3, 4, 5]
 // #endregion
 
-// #region EXERCÍCIO 005 — Somar elementos de um array
+// #region EXERCÍCIO 006 — Somar de 1 até N
+/*
+CATEGORIA: Fundamentos / Loops
+DIFICULDADE: Extremo Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar for, acumulador e atualização de variável.
+
+ENTRADA DE EXEMPLO:
+sumToN(5)
+
+SAÍDA ESPERADA:
+15
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Inicializar um acumulador em zero e somar cada inteiro de 1 até n.
+
+EDGE CASES ESPERADOS:
+n = 0; n = 1
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque o loop percorre n valores.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa apenas um acumulador.
+*/
+function sumToN(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) sum += i;
+  return sum;
+}
+
+console.log(sumToN(5)); // Esperado: 15
+// #endregion
+
+// #region EXERCÍCIO 007 — Contagem regressiva com while
+/*
+CATEGORIA: Fundamentos / Loops
+DIFICULDADE: Extremo Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar while, condição de parada e atualização de contador.
+
+ENTRADA DE EXEMPLO:
+countDownWhile(4)
+
+SAÍDA ESPERADA:
+[4, 3, 2, 1]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Começar em n e decrementar até 1, adicionando cada valor ao resultado.
+
+EDGE CASES ESPERADOS:
+n = 0; n = 1
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque há uma iteração para cada valor de n até 1.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque o array de saída armazena n elementos.
+*/
+function countDownWhile(n) {
+  const out = [];
+  while (n > 0) {
+    out.push(n);
+    n--;
+  }
+  return out;
+}
+
+console.log(countDownWhile(4)); // Esperado: [4, 3, 2, 1]
+// #endregion
+
+// #region EXERCÍCIO 008 — Somar elementos de um array
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Extremo Easy
@@ -224,7 +349,7 @@ function sumArray(arr) {
 console.log(sumArray([1, 2, 3, 4])); // Esperado: 10
 // #endregion
 
-// #region EXERCÍCIO 006 — Encontrar maior valor do array
+// #region EXERCÍCIO 009 — Encontrar maior valor do array
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Extremo Easy
@@ -266,7 +391,7 @@ function maxArray(arr) {
 console.log(maxArray([3, 1, 8, 2])); // Esperado: 8
 // #endregion
 
-// #region EXERCÍCIO 007 — Contar ocorrências de um valor
+// #region EXERCÍCIO 010 — Contar ocorrências de um valor
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Extremo Easy
@@ -307,7 +432,7 @@ function countValue(arr, target) {
 console.log(countValue([1, 2, 2, 3, 2], 2)); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 008 — Inverter string sem reverse
+// #region EXERCÍCIO 011 — Inverter string sem reverse
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Easy
@@ -348,7 +473,91 @@ function reverseString(str) {
 console.log(reverseString("dev")); // Esperado: "ved"
 // #endregion
 
-// #region EXERCÍCIO 009 — Fatorial iterativo
+// #region EXERCÍCIO 012 — Contar vogais em uma string
+/*
+CATEGORIA: Fundamentos / Strings
+DIFICULDADE: Extremo Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar travessia de string, condição e contador.
+
+ENTRADA DE EXEMPLO:
+countVowels("developer")
+
+SAÍDA ESPERADA:
+4
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Percorrer cada caractere e incrementar o contador quando ele pertencer ao conjunto de vogais.
+
+EDGE CASES ESPERADOS:
+string vazia; maiúsculas; sem vogais
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada caractere é visitado uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque o conjunto de vogais tem tamanho constante.
+*/
+function countVowels(str) {
+  let count = 0;
+  for (const ch of str) if ("aeiouAEIOU".includes(ch)) count++;
+  return count;
+}
+
+console.log(countVowels("developer")); // Esperado: 4
+// #endregion
+
+// #region EXERCÍCIO 013 — Somar valores numéricos de um objeto
+/*
+CATEGORIA: JavaScript / Objects
+DIFICULDADE: Extremo Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar leitura de propriedades e iteração sobre Object.values.
+
+ENTRADA DE EXEMPLO:
+sumObjectValues({ a: 2, b: 5, c: 3 })
+
+SAÍDA ESPERADA:
+10
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Obter os valores do objeto e acumular apenas os valores numéricos.
+
+EDGE CASES ESPERADOS:
+objeto vazio; zero; negativos
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada propriedade é visitada uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque Object.values cria um array com os valores do objeto.
+*/
+function sumObjectValues(obj) {
+  let sum = 0;
+  for (const value of Object.values(obj)) {
+    if (typeof value === "number") sum += value;
+  }
+  return sum;
+}
+
+console.log(sumObjectValues({ a: 2, b: 5, c: 3 })); // Esperado: 10
+// #endregion
+
+// #region EXERCÍCIO 014 — Fatorial iterativo
 /*
 CATEGORIA: Fundamentos
 DIFICULDADE: Easy
@@ -389,7 +598,136 @@ function factorialIterative(n) {
 console.log(factorialIterative(5)); // Esperado: 120
 // #endregion
 
-// #region EXERCÍCIO 010 — Comparar crescimento de loops
+// #region EXERCÍCIO 015 — Somar todos os elementos de uma matriz
+/*
+CATEGORIA: Fundamentos / Matrizes
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Aprender travessia de array 2D com loops aninhados.
+
+ENTRADA DE EXEMPLO:
+matrixSum([[1,2],[3,4]])
+
+SAÍDA ESPERADA:
+10
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Percorrer cada linha e, dentro dela, cada coluna, acumulando os valores.
+
+EDGE CASES ESPERADOS:
+matriz vazia; uma linha; números negativos
+
+COMPLEXIDADE DE TEMPO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(r*c) porque cada célula da matriz é visitada uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa somente um acumulador.
+*/
+function matrixSum(matrix) {
+  let sum = 0;
+  for (let r = 0; r < matrix.length; r++) {
+    for (let c = 0; c < matrix[r].length; c++) sum += matrix[r][c];
+  }
+  return sum;
+}
+
+console.log(matrixSum([[1,2],[3,4]])); // Esperado: 10
+// #endregion
+
+// #region EXERCÍCIO 016 — Somar diagonal principal
+/*
+CATEGORIA: Fundamentos / Matrizes
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar relação entre índice de linha e coluna em matriz quadrada.
+
+ENTRADA DE EXEMPLO:
+mainDiagonalSum([[1,2,3],[4,5,6],[7,8,9]])
+
+SAÍDA ESPERADA:
+15
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Na diagonal principal, linha e coluna possuem o mesmo índice.
+
+EDGE CASES ESPERADOS:
+matriz 1x1; valores negativos
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque visita apenas uma célula por linha.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa somente um acumulador.
+*/
+function mainDiagonalSum(matrix) {
+  let sum = 0;
+  for (let i = 0; i < matrix.length; i++) sum += matrix[i][i];
+  return sum;
+}
+
+console.log(mainDiagonalSum([[1,2,3],[4,5,6],[7,8,9]])); // Esperado: 15
+// #endregion
+
+// #region EXERCÍCIO 017 — Transpor matriz
+/*
+CATEGORIA: Fundamentos / Matrizes
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Consolidar criação e indexação de arrays 2D.
+
+ENTRADA DE EXEMPLO:
+transposeMatrix([[1,2,3],[4,5,6]])
+
+SAÍDA ESPERADA:
+[[1,4],[2,5],[3,6]]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Criar uma matriz com dimensões invertidas e escrever out[coluna][linha] = matrix[linha][coluna].
+
+EDGE CASES ESPERADOS:
+matriz vazia; uma linha; uma coluna
+
+COMPLEXIDADE DE TEMPO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(r*c) porque cada célula é lida e escrita uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(r*c) porque a transposta possui o mesmo número de elementos da entrada.
+*/
+function transposeMatrix(matrix) {
+  if (!matrix.length) return [];
+  const rows = matrix.length, cols = matrix[0].length;
+  const out = Array.from({ length: cols }, () => Array(rows));
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) out[c][r] = matrix[r][c];
+  }
+  return out;
+}
+
+console.log(transposeMatrix([[1,2,3],[4,5,6]])); // Esperado: [[1,4],[2,5],[3,6]]
+// #endregion
+
+// #region EXERCÍCIO 018 — Comparar crescimento de loops
 /*
 CATEGORIA: Fundamentos / Big-O
 DIFICULDADE: Easy
@@ -430,12 +768,11 @@ function allPairs(arr) {
 console.log(allPairs([1, 2])); // Esperado: [[1, 1], [1, 2], [2, 1], [2, 2]]
 // #endregion
 
-
 // ============================================================
 // 02 — ARRAYS E STRINGS
 // ============================================================
 
-// #region EXERCÍCIO 011 — Índice do primeiro alvo
+// #region EXERCÍCIO 019 — Índice do primeiro alvo
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Easy
@@ -475,7 +812,7 @@ function linearSearch(arr, target) {
 console.log(linearSearch([4, 7, 1, 9], 1)); // Esperado: 2
 // #endregion
 
-// #region EXERCÍCIO 012 — Remover duplicados preservando ordem
+// #region EXERCÍCIO 020 — Remover duplicados preservando ordem
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Easy
@@ -517,7 +854,7 @@ function uniqueOrdered(arr) {
 console.log(uniqueOrdered([3, 1, 3, 2, 1])); // Esperado: [3, 1, 2]
 // #endregion
 
-// #region EXERCÍCIO 013 — Mover zeros para o final
+// #region EXERCÍCIO 021 — Mover zeros para o final
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Easy
@@ -559,7 +896,52 @@ function moveZeros(arr) {
 console.log(moveZeros([0, 1, 0, 3, 12])); // Esperado: [1, 3, 12, 0, 0]
 // #endregion
 
-// #region EXERCÍCIO 014 — Segundo maior distinto
+// #region EXERCÍCIO 022 — Inverter array in-place
+/*
+CATEGORIA: Arrays / Two Pointers
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Introduzir dois ponteiros por uma transformação simples in-place.
+
+ENTRADA DE EXEMPLO:
+reverseArrayInPlace([1,2,3,4])
+
+SAÍDA ESPERADA:
+[4,3,2,1]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Usar um ponteiro no início e outro no fim, trocando valores até eles se cruzarem.
+
+EDGE CASES ESPERADOS:
+array vazio; tamanho 1; tamanho ímpar
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada posição participa de no máximo uma troca.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque a inversão é feita no próprio array.
+*/
+function reverseArrayInPlace(arr) {
+  let l = 0, r = arr.length - 1;
+  while (l < r) {
+    [arr[l], arr[r]] = [arr[r], arr[l]];
+    l++;
+    r--;
+  }
+  return arr;
+}
+
+console.log(reverseArrayInPlace([1,2,3,4])); // Esperado: [4,3,2,1]
+// #endregion
+
+// #region EXERCÍCIO 023 — Segundo maior distinto
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Easy
@@ -603,7 +985,7 @@ function secondLargest(arr) {
 console.log(secondLargest([5, 1, 5, 3, 4])); // Esperado: 4
 // #endregion
 
-// #region EXERCÍCIO 015 — Rotacionar array à direita K posições
+// #region EXERCÍCIO 024 — Rotacionar array à direita K posições
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Easy
@@ -644,7 +1026,7 @@ function rotateRight(arr, k) {
 console.log(rotateRight([1, 2, 3, 4, 5], 2)); // Esperado: [4, 5, 1, 2, 3]
 // #endregion
 
-// #region EXERCÍCIO 016 — Verificar palíndromo simples
+// #region EXERCÍCIO 025 — Verificar palíndromo simples
 /*
 CATEGORIA: Strings
 DIFICULDADE: Easy
@@ -685,7 +1067,7 @@ function isPalindrome(str) {
 console.log(isPalindrome("radar")); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 017 — Maior prefixo comum
+// #region EXERCÍCIO 026 — Maior prefixo comum
 /*
 CATEGORIA: Strings
 DIFICULDADE: Easy
@@ -732,7 +1114,7 @@ function longestCommonPrefix(strs) {
 console.log(longestCommonPrefix(["flower", "flow", "flight"])); // Esperado: "fl"
 // #endregion
 
-// #region EXERCÍCIO 018 — Compressão simples de string
+// #region EXERCÍCIO 027 — Compressão simples de string
 /*
 CATEGORIA: Strings
 DIFICULDADE: Easy
@@ -777,7 +1159,201 @@ function compressString(str) {
 console.log(compressString("aaabbc")); // Esperado: "a3b2c1"
 // #endregion
 
-// #region EXERCÍCIO 019 — Produto do array exceto o próprio índice
+// #region EXERCÍCIO 028 — Construir prefix sums
+/*
+CATEGORIA: Arrays / Prefix Sum
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Aprender a transformar um array em somas prefixadas.
+
+ENTRADA DE EXEMPLO:
+prefixSums([2,4,1,3])
+
+SAÍDA ESPERADA:
+[2,6,7,10]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter uma soma acumulada e registrar o total após cada elemento.
+
+EDGE CASES ESPERADOS:
+array vazio; negativos
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque o array é percorrido uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque é criado um array de prefixos com n posições.
+*/
+function prefixSums(nums) {
+  const out = [];
+  let sum = 0;
+  for (const n of nums) {
+    sum += n;
+    out.push(sum);
+  }
+  return out;
+}
+
+console.log(prefixSums([2,4,1,3])); // Esperado: [2,6,7,10]
+// #endregion
+
+// #region EXERCÍCIO 029 — Responder somas de intervalos com prefix sum
+/*
+CATEGORIA: Arrays / Prefix Sum
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Aplicar prefix sum para responder várias consultas de intervalo rapidamente.
+
+ENTRADA DE EXEMPLO:
+rangeSumQueries([2,4,1,3], [[0,1],[1,3]])
+
+SAÍDA ESPERADA:
+[6,8]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Construir prefixo com zero inicial e calcular soma(l..r) = prefix[r+1] - prefix[l].
+
+EDGE CASES ESPERADOS:
+intervalo de um elemento; array completo; várias consultas
+
+COMPLEXIDADE DE TEMPO:
+O(n + q)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n + q) porque constrói o prefixo em O(n) e responde cada uma das q consultas em O(1).
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque armazena n+1 valores de prefixo além da saída.
+*/
+function rangeSumQueries(nums, queries) {
+  const prefix = Array(nums.length + 1).fill(0);
+  for (let i = 0; i < nums.length; i++) prefix[i + 1] = prefix[i] + nums[i];
+  return queries.map(([l, r]) => prefix[r + 1] - prefix[l]);
+}
+
+console.log(rangeSumQueries([2,4,1,3], [[0,1],[1,3]])); // Esperado: [6,8]
+// #endregion
+
+// #region EXERCÍCIO 030 — Percorrer matriz em espiral
+/*
+CATEGORIA: Arrays / Matrix
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Praticar controle de quatro limites em matriz.
+
+ENTRADA DE EXEMPLO:
+spiralOrder([[1,2,3],[4,5,6],[7,8,9]])
+
+SAÍDA ESPERADA:
+[1,2,3,6,9,8,7,4,5]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter top, bottom, left e right, consumindo uma borda por vez enquanto os limites forem válidos.
+
+EDGE CASES ESPERADOS:
+1xN; Nx1; matriz vazia
+
+COMPLEXIDADE DE TEMPO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(r*c) porque cada célula é adicionada exatamente uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(r*c) porque a saída contém todas as células.
+*/
+function spiralOrder(matrix) {
+  if (!matrix.length || !matrix[0].length) return [];
+  const out = [];
+  let top = 0, bottom = matrix.length - 1, left = 0, right = matrix[0].length - 1;
+  while (top <= bottom && left <= right) {
+    for (let c = left; c <= right; c++) out.push(matrix[top][c]);
+    top++;
+    for (let r = top; r <= bottom; r++) out.push(matrix[r][right]);
+    right--;
+    if (top <= bottom) {
+      for (let c = right; c >= left; c--) out.push(matrix[bottom][c]);
+      bottom--;
+    }
+    if (left <= right) {
+      for (let r = bottom; r >= top; r--) out.push(matrix[r][left]);
+      left++;
+    }
+  }
+  return out;
+}
+
+console.log(spiralOrder([[1,2,3],[4,5,6],[7,8,9]])); // Esperado: [1,2,3,6,9,8,7,4,5]
+// #endregion
+
+// #region EXERCÍCIO 031 — Rotacionar matriz 90 graus in-place
+/*
+CATEGORIA: Arrays / Matrix
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Combinar transposição e reversão de linhas em uma matriz quadrada.
+
+ENTRADA DE EXEMPLO:
+rotateMatrix90([[1,2,3],[4,5,6],[7,8,9]])
+
+SAÍDA ESPERADA:
+[[7,4,1],[8,5,2],[9,6,3]]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Transpor a matriz pela diagonal principal e depois inverter cada linha.
+
+EDGE CASES ESPERADOS:
+1x1; 2x2
+
+COMPLEXIDADE DE TEMPO:
+O(n²)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n²) porque transposição e reversão visitam O(n²) células.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque as trocas são feitas na própria matriz.
+*/
+function rotateMatrix90(matrix) {
+  const n = matrix.length;
+  for (let r = 0; r < n; r++) {
+    for (let c = r + 1; c < n; c++) {
+      [matrix[r][c], matrix[c][r]] = [matrix[c][r], matrix[r][c]];
+    }
+  }
+  for (const row of matrix) {
+    let l = 0, r = row.length - 1;
+    while (l < r) {
+      [row[l], row[r]] = [row[r], row[l]];
+      l++; r--;
+    }
+  }
+  return matrix;
+}
+
+console.log(rotateMatrix90([[1,2,3],[4,5,6],[7,8,9]])); // Esperado: [[7,4,1],[8,5,2],[9,6,3]]
+// #endregion
+
+// #region EXERCÍCIO 032 — Produto do array exceto o próprio índice
 /*
 CATEGORIA: Arrays
 DIFICULDADE: Medium
@@ -821,7 +1397,7 @@ function productExceptSelf(nums) {
 console.log(productExceptSelf([1, 2, 3, 4])); // Esperado: [24, 12, 8, 6]
 // #endregion
 
-// #region EXERCÍCIO 020 — Maior subarray por soma
+// #region EXERCÍCIO 033 — Maior subarray por soma
 /*
 CATEGORIA: Arrays / Kadane
 DIFICULDADE: Medium
@@ -865,12 +1441,11 @@ function maxSubarraySum(nums) {
 console.log(maxSubarraySum([-2,1,-3,4,-1,2,1,-5,4])); // Esperado: 6
 // #endregion
 
-
 // ============================================================
 // 03 — HASHMAP E SET
 // ============================================================
 
-// #region EXERCÍCIO 021 — Contagem de frequência
+// #region EXERCÍCIO 034 — Contagem de frequência
 /*
 CATEGORIA: HashMap
 DIFICULDADE: Easy
@@ -911,7 +1486,7 @@ function frequencyMap(arr) {
 console.log(frequencyMap(["a", "b", "a"])); // Esperado: [["a", 2], ["b", 1]]
 // #endregion
 
-// #region EXERCÍCIO 022 — Contém duplicado
+// #region EXERCÍCIO 035 — Contém duplicado
 /*
 CATEGORIA: Set
 DIFICULDADE: Easy
@@ -952,7 +1527,7 @@ function containsDuplicate(nums) {
 console.log(containsDuplicate([1, 2, 3, 1])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 023 — Anagrama válido
+// #region EXERCÍCIO 036 — Anagrama válido
 /*
 CATEGORIA: HashMap
 DIFICULDADE: Easy
@@ -998,7 +1573,7 @@ function isAnagram(a, b) {
 console.log(isAnagram("listen", "silent")); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 024 — Interseção única de arrays
+// #region EXERCÍCIO 037 — Interseção única de arrays
 /*
 CATEGORIA: Set
 DIFICULDADE: Easy
@@ -1039,7 +1614,7 @@ function intersectionUnique(a, b) {
 console.log(intersectionUnique([1,2,2,3], [2,2,4])); // Esperado: [2]
 // #endregion
 
-// #region EXERCÍCIO 025 — Two Sum
+// #region EXERCÍCIO 038 — Two Sum
 /*
 CATEGORIA: HashMap
 DIFICULDADE: Easy
@@ -1084,7 +1659,7 @@ function twoSum(nums, target) {
 console.log(twoSum([2,7,11,15], 9)); // Esperado: [0, 1]
 // #endregion
 
-// #region EXERCÍCIO 026 — Primeiro caractere não repetido
+// #region EXERCÍCIO 039 — Primeiro caractere não repetido
 /*
 CATEGORIA: HashMap
 DIFICULDADE: Easy
@@ -1126,7 +1701,7 @@ function firstUniqueChar(str) {
 console.log(firstUniqueChar("leetcode")); // Esperado: 0
 // #endregion
 
-// #region EXERCÍCIO 027 — Agrupar anagramas
+// #region EXERCÍCIO 040 — Agrupar anagramas
 /*
 CATEGORIA: HashMap
 DIFICULDADE: Medium
@@ -1171,7 +1746,7 @@ function groupAnagrams(strs) {
 console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"])); // Esperado: [["eat","tea","ate"],["tan","nat"],["bat"]]
 // #endregion
 
-// #region EXERCÍCIO 028 — Maior sequência consecutiva
+// #region EXERCÍCIO 041 — Maior sequência consecutiva
 /*
 CATEGORIA: HashSet
 DIFICULDADE: Medium
@@ -1219,12 +1794,57 @@ function longestConsecutive(nums) {
 console.log(longestConsecutive([100,4,200,1,3,2])); // Esperado: 4
 // #endregion
 
+// #region EXERCÍCIO 042 — Contar subarrays com soma K
+/*
+CATEGORIA: Prefix Sum / HashMap
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Combinar prefix sum com HashMap para contar subarrays em O(n).
+
+ENTRADA DE EXEMPLO:
+subarraySumEqualsK([1,1,1], 2)
+
+SAÍDA ESPERADA:
+2
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Se prefixAtual - k já apareceu, cada ocorrência anterior forma um subarray com soma k terminando aqui.
+
+EDGE CASES ESPERADOS:
+números negativos; k = 0; array vazio
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada posição faz consultas e atualizações O(1) esperadas no Map.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque o Map pode armazenar até n+1 prefixos distintos.
+*/
+function subarraySumEqualsK(nums, k) {
+  const freq = new Map([[0, 1]]);
+  let prefix = 0, count = 0;
+  for (const n of nums) {
+    prefix += n;
+    count += freq.get(prefix - k) || 0;
+    freq.set(prefix, (freq.get(prefix) || 0) + 1);
+  }
+  return count;
+}
+
+console.log(subarraySumEqualsK([1,1,1], 2)); // Esperado: 2
+// #endregion
 
 // ============================================================
 // 04 — TWO POINTERS E SLIDING WINDOW
 // ============================================================
 
-// #region EXERCÍCIO 029 — Remover duplicados de array ordenado
+// #region EXERCÍCIO 043 — Remover duplicados de array ordenado
 /*
 CATEGORIA: Two Pointers
 DIFICULDADE: Easy
@@ -1266,7 +1886,7 @@ function removeDuplicatesSorted(nums) {
 console.log(removeDuplicatesSorted([1,1,2,2,3])); // Esperado: [1,2,3]
 // #endregion
 
-// #region EXERCÍCIO 030 — Par com soma em array ordenado
+// #region EXERCÍCIO 044 — Par com soma em array ordenado
 /*
 CATEGORIA: Two Pointers
 DIFICULDADE: Easy
@@ -1311,7 +1931,7 @@ function twoSumSorted(nums, target) {
 console.log(twoSumSorted([1,2,4,6,10], 8)); // Esperado: [1,3]
 // #endregion
 
-// #region EXERCÍCIO 031 — Palíndromo ignorando símbolos
+// #region EXERCÍCIO 045 — Palíndromo ignorando símbolos
 /*
 CATEGORIA: Two Pointers
 DIFICULDADE: Easy
@@ -1353,7 +1973,7 @@ function validPalindromeNormalized(str) {
 console.log(validPalindromeNormalized("A man, a plan, a canal: Panama")); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 032 — 3Sum
+// #region EXERCÍCIO 046 — 3Sum
 /*
 CATEGORIA: Two Pointers
 DIFICULDADE: Medium
@@ -1406,7 +2026,7 @@ function threeSum(nums) {
 console.log(threeSum([-1,0,1,2,-1,-4])); // Esperado: [[-1,-1,2],[-1,0,1]]
 // #endregion
 
-// #region EXERCÍCIO 033 — Maior área entre linhas
+// #region EXERCÍCIO 047 — Maior área entre linhas
 /*
 CATEGORIA: Two Pointers
 DIFICULDADE: Medium
@@ -1450,7 +2070,7 @@ function maxContainerArea(height) {
 console.log(maxContainerArea([1,8,6,2,5,4,8,3,7])); // Esperado: 49
 // #endregion
 
-// #region EXERCÍCIO 034 — Maior soma de janela fixa K
+// #region EXERCÍCIO 048 — Maior soma de janela fixa K
 /*
 CATEGORIA: Sliding Window
 DIFICULDADE: Easy
@@ -1494,7 +2114,54 @@ function maxWindowSum(nums, k) {
 console.log(maxWindowSum([2,1,5,1,3,2], 3)); // Esperado: 9
 // #endregion
 
-// #region EXERCÍCIO 035 — Maior substring sem repetição
+// #region EXERCÍCIO 049 — Menor subarray com soma pelo menos target
+/*
+CATEGORIA: Sliding Window
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender sliding window variável quando os valores são positivos.
+
+ENTRADA DE EXEMPLO:
+minSubarrayLen(7, [2,3,1,2,4,3])
+
+SAÍDA ESPERADA:
+2
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Expandir a direita até atingir o target e então encolher pela esquerda enquanto a condição continuar válida.
+
+EDGE CASES ESPERADOS:
+nenhuma janela válida; um elemento; janela inteira
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada ponteiro avança no máximo n vezes.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa apenas índices, soma e melhor tamanho.
+*/
+function minSubarrayLen(target, nums) {
+  let left = 0, sum = 0, best = Infinity;
+  for (let right = 0; right < nums.length; right++) {
+    sum += nums[right];
+    while (sum >= target) {
+      best = Math.min(best, right - left + 1);
+      sum -= nums[left++];
+    }
+  }
+  return best === Infinity ? 0 : best;
+}
+
+console.log(minSubarrayLen(7, [2,3,1,2,4,3])); // Esperado: 2
+// #endregion
+
+// #region EXERCÍCIO 050 — Maior substring sem repetição
 /*
 CATEGORIA: Sliding Window
 DIFICULDADE: Medium
@@ -1541,7 +2208,60 @@ function lengthOfLongestSubstring(str) {
 console.log(lengthOfLongestSubstring("abcabcbb")); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 036 — Menor substring contendo padrão
+// #region EXERCÍCIO 051 — Encontrar anagramas em uma string
+/*
+CATEGORIA: Sliding Window / HashMap
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Praticar janela fixa com frequência de caracteres.
+
+ENTRADA DE EXEMPLO:
+findAnagramsInString("cbaebabacd", "abc")
+
+SAÍDA ESPERADA:
+[0,6]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter contagens da janela de tamanho igual ao padrão e registrar índices quando todas as frequências coincidirem.
+
+EDGE CASES ESPERADOS:
+padrão maior que texto; repetições; nenhuma ocorrência
+
+COMPLEXIDADE DE TEMPO:
+O(n + a)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n + a) porque a janela percorre a string uma vez e compara um alfabeto de tamanho constante.
+
+COMPLEXIDADE DE ESPAÇO:
+O(a)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(a) porque armazena frequências dos caracteres do alfabeto.
+*/
+function findAnagramsInString(s, p) {
+  if (p.length > s.length) return [];
+  const need = Array(26).fill(0), win = Array(26).fill(0);
+  const idx = ch => ch.charCodeAt(0) - 97;
+  for (const ch of p) need[idx(ch)]++;
+  const out = [];
+  for (let i = 0; i < s.length; i++) {
+    win[idx(s[i])]++;
+    if (i >= p.length) win[idx(s[i - p.length])]--;
+    if (i >= p.length - 1) {
+      let same = true;
+      for (let j = 0; j < 26; j++) if (win[j] !== need[j]) { same = false; break; }
+      if (same) out.push(i - p.length + 1);
+    }
+  }
+  return out;
+}
+
+console.log(findAnagramsInString("cbaebabacd", "abc")); // Esperado: [0,6]
+// #endregion
+
+// #region EXERCÍCIO 052 — Menor substring contendo padrão
 /*
 CATEGORIA: Sliding Window
 DIFICULDADE: Hard
@@ -1596,12 +2316,11 @@ function minWindow(s, t) {
 console.log(minWindow("ADOBECODEBANC", "ABC")); // Esperado: "BANC"
 // #endregion
 
-
 // ============================================================
 // 05 — STACK, QUEUE E DEQUE
 // ============================================================
 
-// #region EXERCÍCIO 037 — Parênteses válidos
+// #region EXERCÍCIO 053 — Parênteses válidos
 /*
 CATEGORIA: Stack
 DIFICULDADE: Easy
@@ -1646,7 +2365,7 @@ function validParentheses(str) {
 console.log(validParentheses("({[]})")); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 038 — Remover adjacentes duplicados
+// #region EXERCÍCIO 054 — Remover adjacentes duplicados
 /*
 CATEGORIA: Stack
 DIFICULDADE: Easy
@@ -1689,7 +2408,52 @@ function removeAdjacentDuplicates(str) {
 console.log(removeAdjacentDuplicates("abbaca")); // Esperado: "ca"
 // #endregion
 
-// #region EXERCÍCIO 039 — Avaliar expressão pós-fixa
+// #region EXERCÍCIO 055 — Implementar operações básicas de Stack
+/*
+CATEGORIA: Stack
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Consolidar LIFO implementando push, pop e peek.
+
+ENTRADA DE EXEMPLO:
+stackOperations([["push",1],["push",2],["peek"],["pop"],["peek"]])
+
+SAÍDA ESPERADA:
+[2,2,1]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Usar o final do array como topo da pilha para manter push/pop O(1) amortizado.
+
+EDGE CASES ESPERADOS:
+peek/pop em pilha vazia; várias operações
+
+COMPLEXIDADE DE TEMPO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(m) porque cada uma das m operações custa O(1) amortizado.
+
+COMPLEXIDADE DE ESPAÇO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(m) porque a pilha pode conter até m elementos.
+*/
+function stackOperations(operations) {
+  const stack = [], out = [];
+  for (const op of operations) {
+    if (op[0] === "push") stack.push(op[1]);
+    else if (op[0] === "pop") out.push(stack.length ? stack.pop() : null);
+    else if (op[0] === "peek") out.push(stack.length ? stack[stack.length - 1] : null);
+  }
+  return out;
+}
+
+console.log(stackOperations([["push",1],["push",2],["peek"],["pop"],["peek"]])); // Esperado: [2,2,1]
+// #endregion
+
+// #region EXERCÍCIO 056 — Avaliar expressão pós-fixa
 /*
 CATEGORIA: Stack
 DIFICULDADE: Medium
@@ -1739,7 +2503,61 @@ function evalRPN(tokens) {
 console.log(evalRPN(["2","1","+","3","*"])); // Esperado: 9
 // #endregion
 
-// #region EXERCÍCIO 040 — Próximo elemento maior
+// #region EXERCÍCIO 057 — Min Stack
+/*
+CATEGORIA: Stack
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender a manter uma informação agregada em O(1) por operação.
+
+ENTRADA DE EXEMPLO:
+minStackSimulation([["push",3],["push",1],["push",2],["min"],["pop"],["min"]])
+
+SAÍDA ESPERADA:
+[1,2,1]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter uma pilha normal e outra pilha contendo o mínimo correspondente a cada profundidade.
+
+EDGE CASES ESPERADOS:
+valores iguais; negativos; pop após mínimo
+
+COMPLEXIDADE DE TEMPO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(m) porque cada operação realiza trabalho constante.
+
+COMPLEXIDADE DE ESPAÇO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(m) porque as duas pilhas crescem proporcionalmente ao número de pushes.
+*/
+function minStackSimulation(operations) {
+  const stack = [], mins = [], out = [];
+  for (const op of operations) {
+    if (op[0] === "push") {
+      const v = op[1];
+      stack.push(v);
+      mins.push(mins.length ? Math.min(v, mins[mins.length - 1]) : v);
+    } else if (op[0] === "pop") {
+      if (stack.length) {
+        mins.pop();
+        out.push(stack.pop());
+      } else out.push(null);
+    } else if (op[0] === "min") {
+      out.push(mins.length ? mins[mins.length - 1] : null);
+    }
+  }
+  return out;
+}
+
+console.log(minStackSimulation([["push",3],["push",1],["push",2],["min"],["pop"],["min"]])); // Esperado: [1,2,1]
+// #endregion
+
+// #region EXERCÍCIO 058 — Próximo elemento maior
 /*
 CATEGORIA: Monotonic Stack
 DIFICULDADE: Medium
@@ -1783,7 +2601,7 @@ function nextGreaterElements(nums) {
 console.log(nextGreaterElements([2,1,2,4,3])); // Esperado: [4,2,4,-1,-1]
 // #endregion
 
-// #region EXERCÍCIO 041 — Temperaturas diárias
+// #region EXERCÍCIO 059 — Temperaturas diárias
 /*
 CATEGORIA: Monotonic Stack
 DIFICULDADE: Medium
@@ -1829,7 +2647,7 @@ function dailyTemperatures(temps) {
 console.log(dailyTemperatures([73,74,75,71,69,72,76,73])); // Esperado: [1,1,4,2,1,1,0,0]
 // #endregion
 
-// #region EXERCÍCIO 042 — Fila usando duas pilhas
+// #region EXERCÍCIO 060 — Fila usando duas pilhas
 /*
 CATEGORIA: Queue / Stack
 DIFICULDADE: Medium
@@ -1875,7 +2693,53 @@ function queueWithStacks(operations) {
 console.log(queueWithStacks([["push",1],["push",2],["pop"],["peek"]])); // Esperado: [1,2]
 // #endregion
 
-// #region EXERCÍCIO 043 — Máximo em cada janela
+// #region EXERCÍCIO 061 — Implementar Queue sem usar shift
+/*
+CATEGORIA: Queue
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Entender FIFO e evitar o custo O(n) de Array.shift usando índice de cabeça.
+
+ENTRADA DE EXEMPLO:
+queueOperations([["enqueue",1],["enqueue",2],["peek"],["dequeue"],["peek"]])
+
+SAÍDA ESPERADA:
+[1,1,2]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Adicionar no fim do array e mover um índice head para retirar elementos logicamente do início.
+
+EDGE CASES ESPERADOS:
+fila vazia; alternância enqueue/dequeue
+
+COMPLEXIDADE DE TEMPO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(m) porque cada operação custa O(1) amortizado.
+
+COMPLEXIDADE DE ESPAÇO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(m) porque o array pode armazenar até m valores.
+*/
+function queueOperations(operations) {
+  const queue = [], out = [];
+  let head = 0;
+  for (const op of operations) {
+    if (op[0] === "enqueue") queue.push(op[1]);
+    else if (op[0] === "dequeue") out.push(head < queue.length ? queue[head++] : null);
+    else if (op[0] === "peek") out.push(head < queue.length ? queue[head] : null);
+  }
+  return out;
+}
+
+console.log(queueOperations([["enqueue",1],["enqueue",2],["peek"],["dequeue"],["peek"]])); // Esperado: [1,1,2]
+// #endregion
+
+// #region EXERCÍCIO 062 — Máximo em cada janela
 /*
 CATEGORIA: Monotonic Deque
 DIFICULDADE: Hard
@@ -1922,7 +2786,7 @@ function maxSlidingWindow(nums, k) {
 console.log(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)); // Esperado: [3,3,5,5,6,7]
 // #endregion
 
-// #region EXERCÍCIO 044 — Maior retângulo no histograma
+// #region EXERCÍCIO 063 — Maior retângulo no histograma
 /*
 CATEGORIA: Monotonic Stack
 DIFICULDADE: Hard
@@ -1971,12 +2835,11 @@ function largestRectangleArea(heights) {
 console.log(largestRectangleArea([2,1,5,6,2,3])); // Esperado: 10
 // #endregion
 
-
 // ============================================================
 // 06 — LINKED LISTS
 // ============================================================
 
-// #region EXERCÍCIO 045 — Criar lista encadeada a partir de array
+// #region EXERCÍCIO 064 — Criar lista encadeada a partir de array
 /*
 CATEGORIA: Linked List
 DIFICULDADE: Easy
@@ -2020,7 +2883,7 @@ function arrayToLinkedList(arr) {
 console.log(arrayToLinkedList([1,2,3])); // Esperado: [1,2,3]
 // #endregion
 
-// #region EXERCÍCIO 046 — Inverter lista encadeada
+// #region EXERCÍCIO 065 — Inverter lista encadeada
 /*
 CATEGORIA: Linked List
 DIFICULDADE: Easy
@@ -2063,7 +2926,7 @@ function reverseLinkedList(arr) {
 console.log(reverseLinkedList([1,2,3,4])); // Esperado: [4,3,2,1]
 // #endregion
 
-// #region EXERCÍCIO 047 — Encontrar nó do meio
+// #region EXERCÍCIO 066 — Encontrar nó do meio
 /*
 CATEGORIA: Linked List / Fast-Slow
 DIFICULDADE: Easy
@@ -2104,7 +2967,7 @@ function middleOfLinkedList(arr) {
 console.log(middleOfLinkedList([1,2,3,4,5])); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 048 — Detectar ciclo em lista
+// #region EXERCÍCIO 067 — Detectar ciclo em lista
 /*
 CATEGORIA: Linked List / Floyd
 DIFICULDADE: Medium
@@ -2147,7 +3010,7 @@ function hasCycle(values, cycleIndex) {
 console.log(hasCycle([3,2,0,-4], 1)); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 049 — Mesclar duas listas ordenadas
+// #region EXERCÍCIO 068 — Mesclar duas listas ordenadas
 /*
 CATEGORIA: Linked List
 DIFICULDADE: Easy
@@ -2190,7 +3053,7 @@ function mergeSortedLists(a, b) {
 console.log(mergeSortedLists([1,2,4], [1,3,4])); // Esperado: [1,1,2,3,4,4]
 // #endregion
 
-// #region EXERCÍCIO 050 — Remover N-ésimo nó a partir do fim
+// #region EXERCÍCIO 069 — Remover N-ésimo nó a partir do fim
 /*
 CATEGORIA: Linked List / Two Pointers
 DIFICULDADE: Medium
@@ -2237,7 +3100,64 @@ function removeNthFromEnd(arr, n) {
 console.log(removeNthFromEnd([1,2,3,4,5], 2)); // Esperado: [1,2,3,5]
 // #endregion
 
-// #region EXERCÍCIO 051 — Verificar palíndromo em lista
+// #region EXERCÍCIO 070 — Somar dois números representados por listas
+/*
+CATEGORIA: Linked List
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Praticar travessia simultânea, carry e criação incremental de nós.
+
+ENTRADA DE EXEMPLO:
+addTwoNumbersLinkedList([2,4,3], [5,6,4])
+
+SAÍDA ESPERADA:
+[7,0,8]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Somar os dígitos correspondentes e o carry, criando um novo dígito com soma % 10 e atualizando carry.
+
+EDGE CASES ESPERADOS:
+tamanhos diferentes; carry final; zero
+
+COMPLEXIDADE DE TEMPO:
+O(max(n,m))
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(max(n,m)) porque cada nó das duas listas é processado no máximo uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(max(n,m))
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(max(n,m)) porque a lista de saída pode ter max(n,m)+1 nós.
+*/
+function addTwoNumbersLinkedList(a, b) {
+  class Node { constructor(value, next = null) { this.value = value; this.next = next; } }
+  const build = arr => {
+    const dummy = new Node(0); let cur = dummy;
+    for (const v of arr) { cur.next = new Node(v); cur = cur.next; }
+    return dummy.next;
+  };
+  let l1 = build(a), l2 = build(b), carry = 0;
+  const dummy = new Node(0); let cur = dummy;
+  while (l1 || l2 || carry) {
+    const sum = (l1?.value || 0) + (l2?.value || 0) + carry;
+    carry = Math.floor(sum / 10);
+    cur.next = new Node(sum % 10);
+    cur = cur.next;
+    l1 = l1?.next || null;
+    l2 = l2?.next || null;
+  }
+  const out = [];
+  for (let n = dummy.next; n; n = n.next) out.push(n.value);
+  return out;
+}
+
+console.log(addTwoNumbersLinkedList([2,4,3], [5,6,4])); // Esperado: [7,0,8]
+// #endregion
+
+// #region EXERCÍCIO 071 — Verificar palíndromo em lista
 /*
 CATEGORIA: Linked List
 DIFICULDADE: Medium
@@ -2281,7 +3201,7 @@ function isLinkedListPalindrome(arr) {
 console.log(isLinkedListPalindrome([1,2,2,1])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 052 — Mesclar K listas ordenadas
+// #region EXERCÍCIO 072 — Mesclar K listas ordenadas
 /*
 CATEGORIA: Linked List / Heap
 DIFICULDADE: Hard
@@ -2324,12 +3244,11 @@ function mergeKSortedLists(lists) {
 console.log(mergeKSortedLists([[1,4,5],[1,3,4],[2,6]])); // Esperado: [1,1,2,3,4,4,5,6]
 // #endregion
 
-
 // ============================================================
 // 07 — SORTING E BINARY SEARCH
 // ============================================================
 
-// #region EXERCÍCIO 053 — Bubble Sort
+// #region EXERCÍCIO 073 — Bubble Sort
 /*
 CATEGORIA: Sorting
 DIFICULDADE: Easy
@@ -2368,7 +3287,51 @@ function bubbleSort(arr) {
 console.log(bubbleSort([5,1,4,2])); // Esperado: [1,2,4,5]
 // #endregion
 
-// #region EXERCÍCIO 054 — Insertion Sort
+// #region EXERCÍCIO 074 — Selection Sort
+/*
+CATEGORIA: Sorting
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Aprender seleção do menor elemento e custo O(n²).
+
+ENTRADA DE EXEMPLO:
+selectionSort([5,3,1,4,2])
+
+SAÍDA ESPERADA:
+[1,2,3,4,5]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Para cada posição, procurar o menor valor no sufixo e trocá-lo para a posição atual.
+
+EDGE CASES ESPERADOS:
+já ordenado; reverso; duplicados
+
+COMPLEXIDADE DE TEMPO:
+O(n²)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n²) porque para cada posição há uma busca linear no restante do array.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque ordena in-place usando apenas índices temporários.
+*/
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) if (arr[j] < arr[min]) min = j;
+    [arr[i], arr[min]] = [arr[min], arr[i]];
+  }
+  return arr;
+}
+
+console.log(selectionSort([5,3,1,4,2])); // Esperado: [1,2,3,4,5]
+// #endregion
+
+// #region EXERCÍCIO 075 — Insertion Sort
 /*
 CATEGORIA: Sorting
 DIFICULDADE: Easy
@@ -2407,7 +3370,7 @@ function insertionSort(arr) {
 console.log(insertionSort([5,2,4,6,1,3])); // Esperado: [1,2,3,4,5,6]
 // #endregion
 
-// #region EXERCÍCIO 055 — Merge Sort
+// #region EXERCÍCIO 076 — Merge Sort
 /*
 CATEGORIA: Sorting
 DIFICULDADE: Medium
@@ -2446,7 +3409,7 @@ function mergeSort(arr) {
 console.log(mergeSort([5,2,3,1])); // Esperado: [1,2,3,5]
 // #endregion
 
-// #region EXERCÍCIO 056 — Quick Sort
+// #region EXERCÍCIO 077 — Quick Sort
 /*
 CATEGORIA: Sorting
 DIFICULDADE: Medium
@@ -2485,7 +3448,7 @@ function quickSort(arr) {
 console.log(quickSort([10,7,8,9,1,5])); // Esperado: [1,5,7,8,9,10]
 // #endregion
 
-// #region EXERCÍCIO 057 — Busca binária
+// #region EXERCÍCIO 078 — Busca binária
 /*
 CATEGORIA: Binary Search
 DIFICULDADE: Easy
@@ -2524,7 +3487,53 @@ function binarySearch(arr, target) {
 console.log(binarySearch([1,3,5,7,9], 7)); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 058 — Primeira ocorrência por busca binária
+// #region EXERCÍCIO 079 — Raiz quadrada inteira com busca binária
+/*
+CATEGORIA: Binary Search
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar busca binária fora de um array pronto, procurando um valor numérico.
+
+ENTRADA DE EXEMPLO:
+sqrtFloor(27)
+
+SAÍDA ESPERADA:
+5
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Buscar o maior x tal que x*x <= n, ajustando os limites conforme o quadrado do meio.
+
+EDGE CASES ESPERADOS:
+n = 0; n = 1; quadrado perfeito
+
+COMPLEXIDADE DE TEMPO:
+O(log n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(log n) porque o espaço de busca numérico é dividido pela metade a cada passo.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa apenas limites e resposta parcial.
+*/
+function sqrtFloor(n) {
+  if (n < 2) return n;
+  let l = 1, r = Math.floor(n / 2), ans = 1;
+  while (l <= r) {
+    const mid = Math.floor((l + r) / 2);
+    if (mid <= Math.floor(n / mid)) { ans = mid; l = mid + 1; }
+    else r = mid - 1;
+  }
+  return ans;
+}
+
+console.log(sqrtFloor(27)); // Esperado: 5
+// #endregion
+
+// #region EXERCÍCIO 080 — Primeira ocorrência por busca binária
 /*
 CATEGORIA: Binary Search
 DIFICULDADE: Medium
@@ -2563,7 +3572,54 @@ function firstOccurrence(arr, target) {
 console.log(firstOccurrence([1,2,2,2,3], 2)); // Esperado: 1
 // #endregion
 
-// #region EXERCÍCIO 059 — Buscar em array rotacionado
+// #region EXERCÍCIO 081 — Koko Eating Bananas
+/*
+CATEGORIA: Binary Search on Answer
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Dominar o padrão de busca binária sobre a resposta usando uma função de viabilidade monotônica.
+
+ENTRADA DE EXEMPLO:
+kokoEatingBananas([3,6,7,11], 8)
+
+SAÍDA ESPERADA:
+4
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Buscar a menor velocidade k; velocidades maiores nunca aumentam as horas necessárias, formando uma condição monotônica.
+
+EDGE CASES ESPERADOS:
+uma pilha; h igual ao número de pilhas; valores grandes
+
+COMPLEXIDADE DE TEMPO:
+O(n log M)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n log M) porque cada teste de velocidade custa O(n) e são feitos O(log M) testes, onde M é a maior pilha.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque não usa estrutura proporcional à entrada.
+*/
+function kokoEatingBananas(piles, h) {
+  let l = 1, r = Math.max(...piles);
+  while (l < r) {
+    const mid = Math.floor((l + r) / 2);
+    let hours = 0;
+    for (const pile of piles) hours += Math.ceil(pile / mid);
+    if (hours <= h) r = mid;
+    else l = mid + 1;
+  }
+  return l;
+}
+
+console.log(kokoEatingBananas([3,6,7,11], 8)); // Esperado: 4
+// #endregion
+
+// #region EXERCÍCIO 082 — Buscar em array rotacionado
 /*
 CATEGORIA: Binary Search
 DIFICULDADE: Medium
@@ -2602,7 +3658,7 @@ function searchRotated(nums, target) {
 console.log(searchRotated([4,5,6,7,0,1,2], 0)); // Esperado: 4
 // #endregion
 
-// #region EXERCÍCIO 060 — Mediana de dois arrays ordenados
+// #region EXERCÍCIO 083 — Mediana de dois arrays ordenados
 /*
 CATEGORIA: Binary Search
 DIFICULDADE: Hard
@@ -2641,12 +3697,11 @@ function findMedianSortedArrays(a, b) {
 console.log(findMedianSortedArrays([1,3], [2])); // Esperado: 2
 // #endregion
 
-
 // ============================================================
 // 08 — RECURSION E BACKTRACKING
 // ============================================================
 
-// #region EXERCÍCIO 061 — Fatorial recursivo
+// #region EXERCÍCIO 084 — Fatorial recursivo
 /*
 CATEGORIA: Recursion
 DIFICULDADE: Easy
@@ -2685,7 +3740,7 @@ function factorialRecursive(n) {
 console.log(factorialRecursive(5)); // Esperado: 120
 // #endregion
 
-// #region EXERCÍCIO 062 — Fibonacci com memoização
+// #region EXERCÍCIO 085 — Fibonacci com memoização
 /*
 CATEGORIA: Recursion / Memoization
 DIFICULDADE: Easy
@@ -2724,7 +3779,7 @@ function fibonacciMemo(n) {
 console.log(fibonacciMemo(10)); // Esperado: 55
 // #endregion
 
-// #region EXERCÍCIO 063 — Gerar todas as subsequências
+// #region EXERCÍCIO 086 — Gerar todas as subsequências
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Medium
@@ -2763,7 +3818,58 @@ function allSubsequences(arr) {
 console.log(allSubsequences([1,2])); // Esperado: [[],[2],[1],[1,2]]
 // #endregion
 
-// #region EXERCÍCIO 064 — Permutações
+// #region EXERCÍCIO 087 — Subsets II - subconjuntos sem duplicatas
+/*
+CATEGORIA: Backtracking
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender ordenação + poda para evitar resultados duplicados no mesmo nível de decisão.
+
+ENTRADA DE EXEMPLO:
+subsetsWithDup([1,2,2])
+
+SAÍDA ESPERADA:
+[[],[1],[1,2],[1,2,2],[2],[2,2]]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Ordenar e, ao iterar escolhas no mesmo nível, ignorar um valor igual ao anterior.
+
+EDGE CASES ESPERADOS:
+todos iguais; array vazio
+
+COMPLEXIDADE DE TEMPO:
+O(n*2^n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n*2^n) porque há até 2^n subconjuntos e copiar cada caminho pode custar O(n).
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque a profundidade da recursão é O(n), desconsiderando a saída.
+*/
+function subsetsWithDup(nums) {
+  nums.sort((a, b) => a - b);
+  const out = [], path = [];
+  const dfs = start => {
+    out.push([...path]);
+    for (let i = start; i < nums.length; i++) {
+      if (i > start && nums[i] === nums[i - 1]) continue;
+      path.push(nums[i]);
+      dfs(i + 1);
+      path.pop();
+    }
+  };
+  dfs(0);
+  return out;
+}
+
+console.log(subsetsWithDup([1,2,2])); // Esperado: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+// #endregion
+
+// #region EXERCÍCIO 088 — Permutações
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Medium
@@ -2802,7 +3908,7 @@ function permutations(nums) {
 console.log(permutations([1,2,3])); // Esperado: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 // #endregion
 
-// #region EXERCÍCIO 065 — Combinações de N escolha K
+// #region EXERCÍCIO 089 — Combinações de N escolha K
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Medium
@@ -2841,7 +3947,7 @@ function combinations(n, k) {
 console.log(combinations(4, 2)); // Esperado: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
 // #endregion
 
-// #region EXERCÍCIO 066 — Combination Sum
+// #region EXERCÍCIO 090 — Combination Sum
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Medium
@@ -2880,7 +3986,58 @@ function combinationSum(candidates, target) {
 console.log(combinationSum([2,3,6,7], 7)); // Esperado: [[2,2,3],[7]]
 // #endregion
 
-// #region EXERCÍCIO 067 — Resolver N-Queens
+// #region EXERCÍCIO 091 — Word Search em matriz
+/*
+CATEGORIA: Backtracking / Grid
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Combinar DFS, backtracking e marcação temporária de células.
+
+ENTRADA DE EXEMPLO:
+wordSearch([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED")
+
+SAÍDA ESPERADA:
+true
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Tentar iniciar em cada célula e avançar nas quatro direções quando o caractere atual coincidir, desfazendo a marcação ao retornar.
+
+EDGE CASES ESPERADOS:
+palavra vazia; uma célula; reutilização proibida
+
+COMPLEXIDADE DE TEMPO:
+O(r*c*4^L)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(r*c*4^L) porque cada célula pode iniciar uma busca que ramifica em até quatro direções por caractere.
+
+COMPLEXIDADE DE ESPAÇO:
+O(L)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(L) porque a pilha recursiva tem profundidade no máximo igual ao tamanho da palavra.
+*/
+function wordSearch(board, word) {
+  if (!word.length) return true;
+  const rows = board.length, cols = board[0]?.length || 0;
+  const dfs = (r, c, i) => {
+    if (i === word.length) return true;
+    if (r < 0 || c < 0 || r >= rows || c >= cols || board[r][c] !== word[i]) return false;
+    const ch = board[r][c];
+    board[r][c] = "#";
+    const found = dfs(r+1,c,i+1) || dfs(r-1,c,i+1) || dfs(r,c+1,i+1) || dfs(r,c-1,i+1);
+    board[r][c] = ch;
+    return found;
+  };
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (dfs(r, c, 0)) return true;
+  return false;
+}
+
+console.log(wordSearch([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED")); // Esperado: true
+// #endregion
+
+// #region EXERCÍCIO 092 — Resolver N-Queens
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Hard
@@ -2919,7 +4076,7 @@ function solveNQueens(n) {
 console.log(solveNQueens(4)); // Esperado: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 // #endregion
 
-// #region EXERCÍCIO 068 — Sudoku Solver
+// #region EXERCÍCIO 093 — Sudoku Solver
 /*
 CATEGORIA: Backtracking
 DIFICULDADE: Hard
@@ -2958,12 +4115,11 @@ function solveSudoku(board) {
 console.log(solveSudoku([["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]])); // Esperado: ["534678912","672195348","198342567","859761423","426853791","713924856","961537284","287419635","345286179"]
 // #endregion
 
-
 // ============================================================
 // 09 — BINARY TREES E BST
 // ============================================================
 
-// #region EXERCÍCIO 069 — Percurso pré-ordem de árvore binária
+// #region EXERCÍCIO 094 — Percurso pré-ordem de árvore binária
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Easy
@@ -3002,7 +4158,7 @@ function preorderTraversal(levelOrder) {
 console.log(preorderTraversal([1,null,2,3])); // Esperado: [1,2,3]
 // #endregion
 
-// #region EXERCÍCIO 070 — Percurso em ordem
+// #region EXERCÍCIO 095 — Percurso em ordem
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Easy
@@ -3041,7 +4197,60 @@ function inorderTraversal(levelOrder) {
 console.log(inorderTraversal([2,1,3])); // Esperado: [1,2,3]
 // #endregion
 
-// #region EXERCÍCIO 071 — Percurso por níveis
+// #region EXERCÍCIO 096 — Percurso pós-ordem
+/*
+CATEGORIA: Binary Tree
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Completar os três percursos DFS clássicos: left-right-root.
+
+ENTRADA DE EXEMPLO:
+postorderTraversal([1,null,2,3])
+
+SAÍDA ESPERADA:
+[3,2,1]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Visitar recursivamente a esquerda, depois a direita e só então registrar o nó atual.
+
+EDGE CASES ESPERADOS:
+árvore vazia; um nó; degenerada
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada nó é visitado uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(h)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(h) porque a pilha recursiva cresce com a altura da árvore.
+*/
+function postorderTraversal(levelOrder) {
+  class Node { constructor(v) { this.val = v; this.left = null; this.right = null; } }
+  const build = arr => {
+    if (!arr.length || arr[0] == null) return null;
+    const root = new Node(arr[0]), q = [root]; let i = 1, h = 0;
+    while (h < q.length && i < arr.length) {
+      const n = q[h++];
+      if (i < arr.length && arr[i] != null) { n.left = new Node(arr[i]); q.push(n.left); } i++;
+      if (i < arr.length && arr[i] != null) { n.right = new Node(arr[i]); q.push(n.right); } i++;
+    }
+    return root;
+  };
+  const root = build(levelOrder), out = [];
+  const dfs = n => { if (!n) return; dfs(n.left); dfs(n.right); out.push(n.val); };
+  dfs(root);
+  return out;
+}
+
+console.log(postorderTraversal([1,null,2,3])); // Esperado: [3,2,1]
+// #endregion
+
+// #region EXERCÍCIO 097 — Percurso por níveis
 /*
 CATEGORIA: Binary Tree / BFS
 DIFICULDADE: Easy
@@ -3080,7 +4289,7 @@ function levelOrderTraversal(values) {
 console.log(levelOrderTraversal([3,9,20,null,null,15,7])); // Esperado: [[3],[9,20],[15,7]]
 // #endregion
 
-// #region EXERCÍCIO 072 — Altura máxima da árvore
+// #region EXERCÍCIO 098 — Altura máxima da árvore
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Easy
@@ -3119,7 +4328,7 @@ function maxTreeDepth(values) {
 console.log(maxTreeDepth([3,9,20,null,null,15,7])); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 073 — Inverter árvore binária
+// #region EXERCÍCIO 099 — Inverter árvore binária
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Easy
@@ -3158,7 +4367,7 @@ function invertTree(values) {
 console.log(invertTree([4,2,7,1,3,6,9])); // Esperado: [4,7,2,9,6,3,1]
 // #endregion
 
-// #region EXERCÍCIO 074 — Verificar árvore balanceada
+// #region EXERCÍCIO 100 — Verificar árvore balanceada
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Medium
@@ -3197,7 +4406,7 @@ function isBalancedTree(values) {
 console.log(isBalancedTree([3,9,20,null,null,15,7])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 075 — Diâmetro da árvore binária
+// #region EXERCÍCIO 101 — Diâmetro da árvore binária
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Medium
@@ -3236,7 +4445,163 @@ function diameterOfBinaryTree(values) {
 console.log(diameterOfBinaryTree([1,2,3,4,5])); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 076 — Validar BST
+// #region EXERCÍCIO 102 — Buscar valor em BST
+/*
+CATEGORIA: Binary Search Tree
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Entender como a propriedade ordenada da BST elimina metade lógica da árvore a cada comparação.
+
+ENTRADA DE EXEMPLO:
+searchBST({val:4,left:{val:2,left:{val:1},right:{val:3}},right:{val:7}}, 3)
+
+SAÍDA ESPERADA:
+true
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Comparar com o nó atual e caminhar apenas para a esquerda ou direita conforme a propriedade da BST.
+
+EDGE CASES ESPERADOS:
+alvo na raiz; ausente; árvore vazia
+
+COMPLEXIDADE DE TEMPO:
+O(h)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(h) porque percorre no máximo um caminho da raiz até uma folha.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque a versão iterativa usa apenas um ponteiro corrente.
+*/
+function searchBST(root, target) {
+  let cur = root;
+  while (cur) {
+    if (cur.val === target) return true;
+    cur = target < cur.val ? cur.left : cur.right;
+  }
+  return false;
+}
+
+console.log(searchBST({val:4,left:{val:2,left:{val:1},right:{val:3}},right:{val:7}}, 3)); // Esperado: true
+// #endregion
+
+// #region EXERCÍCIO 103 — Inserir valor em BST
+/*
+CATEGORIA: Binary Search Tree
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Praticar inserção preservando a invariável esquerda < nó < direita.
+
+ENTRADA DE EXEMPLO:
+insertBST({val:4,left:{val:2,left:{val:1},right:{val:3}},right:{val:7}}, 5)
+
+SAÍDA ESPERADA:
+[1,2,3,4,5,7]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Descer pela árvore conforme a comparação até encontrar uma referência vazia e conectar o novo nó; depois validar por inorder.
+
+EDGE CASES ESPERADOS:
+árvore vazia; inserir menor/maior; duplicado
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque a inserção em si custa O(h), mas o inorder usado como saída visita todos os n nós.
+
+COMPLEXIDADE DE ESPAÇO:
+O(h)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(h) porque o inorder recursivo usa pilha proporcional à altura, desconsiderando a saída.
+*/
+function insertBST(root, target) {
+  const node = { val: target, left: null, right: null };
+  if (!root) return [target];
+  let cur = root;
+  while (true) {
+    if (target === cur.val) break;
+    if (target < cur.val) {
+      if (cur.left) cur = cur.left;
+      else { cur.left = node; break; }
+    } else {
+      if (cur.right) cur = cur.right;
+      else { cur.right = node; break; }
+    }
+  }
+  const out = [];
+  const inorder = n => { if (!n) return; inorder(n.left); out.push(n.val); inorder(n.right); };
+  inorder(root);
+  return out;
+}
+
+console.log(insertBST({val:4,left:{val:2,left:{val:1},right:{val:3}},right:{val:7}}, 5)); // Esperado: [1,2,3,4,5,7]
+// #endregion
+
+// #region EXERCÍCIO 104 — Remover valor de BST
+/*
+CATEGORIA: Binary Search Tree
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender os três casos de remoção: folha, um filho e dois filhos.
+
+ENTRADA DE EXEMPLO:
+deleteBST({val:5,left:{val:3,left:{val:2},right:{val:4}},right:{val:6,right:{val:7}}}, 3)
+
+SAÍDA ESPERADA:
+[2,4,5,6,7]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Localizar o nó; com dois filhos, substituir pelo sucessor inorder e remover esse sucessor da subárvore direita.
+
+EDGE CASES ESPERADOS:
+folha; raiz; nó com um ou dois filhos; alvo ausente
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque a remoção custa O(h), e o inorder usado como saída visita todos os n nós.
+
+COMPLEXIDADE DE ESPAÇO:
+O(h)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(h) porque a recursão de remoção e inorder usa profundidade proporcional à altura.
+*/
+function deleteBST(root, target) {
+  const remove = (node, key) => {
+    if (!node) return null;
+    if (key < node.val) node.left = remove(node.left, key);
+    else if (key > node.val) node.right = remove(node.right, key);
+    else {
+      if (!node.left) return node.right || null;
+      if (!node.right) return node.left || null;
+      let succ = node.right;
+      while (succ.left) succ = succ.left;
+      node.val = succ.val;
+      node.right = remove(node.right, succ.val);
+    }
+    return node;
+  };
+  root = remove(root, target);
+  const out = [];
+  const inorder = n => { if (!n) return; inorder(n.left); out.push(n.val); inorder(n.right); };
+  inorder(root);
+  return out;
+}
+
+console.log(deleteBST({val:5,left:{val:3,left:{val:2},right:{val:4}},right:{val:6,right:{val:7}}}, 3)); // Esperado: [2,4,5,6,7]
+// #endregion
+
+// #region EXERCÍCIO 105 — Validar BST
 /*
 CATEGORIA: Binary Search Tree
 DIFICULDADE: Medium
@@ -3275,7 +4640,7 @@ function isValidBST(values) {
 console.log(isValidBST([2,1,3])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 077 — K-ésimo menor em BST
+// #region EXERCÍCIO 106 — K-ésimo menor em BST
 /*
 CATEGORIA: Binary Search Tree
 DIFICULDADE: Medium
@@ -3314,7 +4679,7 @@ function kthSmallestBST(values, k) {
 console.log(kthSmallestBST([3,1,4,null,2], 1)); // Esperado: 1
 // #endregion
 
-// #region EXERCÍCIO 078 — Menor ancestral comum em BST
+// #region EXERCÍCIO 107 — Menor ancestral comum em BST
 /*
 CATEGORIA: Binary Search Tree
 DIFICULDADE: Medium
@@ -3353,7 +4718,7 @@ function lowestCommonAncestorBST(values, p, q) {
 console.log(lowestCommonAncestorBST([6,2,8,0,4,7,9,null,null,3,5], 2, 8)); // Esperado: 6
 // #endregion
 
-// #region EXERCÍCIO 079 — Construir BST balanceada de array ordenado
+// #region EXERCÍCIO 108 — Construir BST balanceada de array ordenado
 /*
 CATEGORIA: Binary Search Tree
 DIFICULDADE: Medium
@@ -3392,7 +4757,7 @@ function sortedArrayToBSTPreorder(nums) {
 console.log(sortedArrayToBSTPreorder([-10,-3,0,5,9])); // Esperado: [0,-10,-3,5,9]
 // #endregion
 
-// #region EXERCÍCIO 080 — Serializar e desserializar árvore
+// #region EXERCÍCIO 109 — Serializar e desserializar árvore
 /*
 CATEGORIA: Binary Tree
 DIFICULDADE: Hard
@@ -3431,12 +4796,140 @@ function serializeDeserializeTree(values) {
 console.log(serializeDeserializeTree([1,2,3,null,null,4,5])); // Esperado: [1,2,3,null,null,4,5]
 // #endregion
 
+// #region EXERCÍCIO 110 — Maior soma de caminho em árvore binária
+/*
+CATEGORIA: Binary Tree / Tree DP
+DIFICULDADE: Hard
+
+OBJETIVO DO EXERCÍCIO:
+Aprender a combinar contribuição retornada ao pai com resposta global que pode usar os dois filhos.
+
+ENTRADA DE EXEMPLO:
+binaryTreeMaxPathSum([-10,9,20,null,null,15,7])
+
+SAÍDA ESPERADA:
+42
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Cada nó retorna ao pai apenas o melhor ramo; globalmente, testar leftGain + node + rightGain.
+
+EDGE CASES ESPERADOS:
+todos negativos; um nó; árvore degenerada
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada nó é processado uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(h)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(h) porque a pilha recursiva cresce com a altura.
+*/
+function binaryTreeMaxPathSum(levelOrder) {
+  class Node { constructor(v) { this.val = v; this.left = null; this.right = null; } }
+  const build = arr => {
+    if (!arr.length || arr[0] == null) return null;
+    const root = new Node(arr[0]), q = [root]; let h = 0, i = 1;
+    while (h < q.length && i < arr.length) {
+      const n = q[h++];
+      if (i < arr.length && arr[i] != null) { n.left = new Node(arr[i]); q.push(n.left); } i++;
+      if (i < arr.length && arr[i] != null) { n.right = new Node(arr[i]); q.push(n.right); } i++;
+    }
+    return root;
+  };
+  const root = build(levelOrder);
+  let best = -Infinity;
+  const dfs = node => {
+    if (!node) return 0;
+    const left = Math.max(0, dfs(node.left));
+    const right = Math.max(0, dfs(node.right));
+    best = Math.max(best, node.val + left + right);
+    return node.val + Math.max(left, right);
+  };
+  dfs(root);
+  return best;
+}
+
+console.log(binaryTreeMaxPathSum([-10,9,20,null,null,15,7])); // Esperado: 42
+// #endregion
 
 // ============================================================
 // 10 — HEAP, GREEDY E INTERVALS
 // ============================================================
 
-// #region EXERCÍCIO 081 — K maiores elementos
+// #region EXERCÍCIO 111 — Implementar Min-Heap do zero
+/*
+CATEGORIA: Heap / Priority Queue
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Entender representação em array, parent/children, sift-up e sift-down.
+
+ENTRADA DE EXEMPLO:
+minHeapOperations([["push",3],["push",1],["push",2],["peek"],["pop"],["peek"]])
+
+SAÍDA ESPERADA:
+[1,1,2]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter a propriedade heap após push subindo o elemento e após pop descendo a nova raiz.
+
+EDGE CASES ESPERADOS:
+heap vazio; valores iguais; sequência alternada
+
+COMPLEXIDADE DE TEMPO:
+O(m log m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(m log m) porque cada push/pop pode custar O(log m), enquanto peek é O(1).
+
+COMPLEXIDADE DE ESPAÇO:
+O(m)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(m) porque o heap armazena até m elementos.
+*/
+function minHeapOperations(operations) {
+  const heap = [], out = [];
+  const up = i => {
+    while (i > 0) {
+      const p = Math.floor((i - 1) / 2);
+      if (heap[p] <= heap[i]) break;
+      [heap[p], heap[i]] = [heap[i], heap[p]];
+      i = p;
+    }
+  };
+  const down = i => {
+    while (true) {
+      let smallest = i, l = i * 2 + 1, r = l + 1;
+      if (l < heap.length && heap[l] < heap[smallest]) smallest = l;
+      if (r < heap.length && heap[r] < heap[smallest]) smallest = r;
+      if (smallest === i) break;
+      [heap[i], heap[smallest]] = [heap[smallest], heap[i]];
+      i = smallest;
+    }
+  };
+  const pop = () => {
+    if (!heap.length) return null;
+    const root = heap[0], last = heap.pop();
+    if (heap.length) { heap[0] = last; down(0); }
+    return root;
+  };
+  for (const op of operations) {
+    if (op[0] === "push") { heap.push(op[1]); up(heap.length - 1); }
+    else if (op[0] === "peek") out.push(heap.length ? heap[0] : null);
+    else if (op[0] === "pop") out.push(pop());
+  }
+  return out;
+}
+
+console.log(minHeapOperations([["push",3],["push",1],["push",2],["peek"],["pop"],["peek"]])); // Esperado: [1,1,2]
+// #endregion
+
+// #region EXERCÍCIO 112 — K maiores elementos
 /*
 CATEGORIA: Heap / Priority Queue
 DIFICULDADE: Medium
@@ -3475,7 +4968,7 @@ function topKLargest(nums, k) {
 console.log(topKLargest([3,2,1,5,6,4], 2)); // Esperado: [6,5]
 // #endregion
 
-// #region EXERCÍCIO 082 — K-ésimo maior elemento
+// #region EXERCÍCIO 113 — K-ésimo maior elemento
 /*
 CATEGORIA: Heap
 DIFICULDADE: Medium
@@ -3514,7 +5007,7 @@ function kthLargest(nums, k) {
 console.log(kthLargest([3,2,1,5,6,4], 2)); // Esperado: 5
 // #endregion
 
-// #region EXERCÍCIO 083 — Top K palavras frequentes
+// #region EXERCÍCIO 114 — Top K palavras frequentes
 /*
 CATEGORIA: Heap / HashMap
 DIFICULDADE: Medium
@@ -3553,7 +5046,7 @@ function topKFrequentWords(words, k) {
 console.log(topKFrequentWords(["i","love","leetcode","i","love","coding"], 2)); // Esperado: ["i","love"]
 // #endregion
 
-// #region EXERCÍCIO 084 — Selecionar máximo de atividades
+// #region EXERCÍCIO 115 — Selecionar máximo de atividades
 /*
 CATEGORIA: Greedy
 DIFICULDADE: Easy
@@ -3592,7 +5085,51 @@ function activitySelection(intervals) {
 console.log(activitySelection([[1,3],[2,4],[3,5],[0,7],[5,7],[5,9],[7,9]])); // Esperado: [[1,3],[3,5],[5,7],[7,9]]
 // #endregion
 
-// #region EXERCÍCIO 085 — Mesclar intervalos
+// #region EXERCÍCIO 116 — Jump Game
+/*
+CATEGORIA: Greedy
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender a manter o alcance máximo possível como estado guloso.
+
+ENTRADA DE EXEMPLO:
+jumpGame([2,3,1,1,4])
+
+SAÍDA ESPERADA:
+true
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Percorrer enquanto o índice atual for alcançável e atualizar o ponto mais distante que pode ser atingido.
+
+EDGE CASES ESPERADOS:
+um elemento; zero bloqueando; impossível
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque o array é percorrido uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque mantém apenas o maior alcance.
+*/
+function jumpGame(nums) {
+  let farthest = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (i > farthest) return false;
+    farthest = Math.max(farthest, i + nums[i]);
+  }
+  return true;
+}
+
+console.log(jumpGame([2,3,1,1,4])); // Esperado: true
+// #endregion
+
+// #region EXERCÍCIO 117 — Mesclar intervalos
 /*
 CATEGORIA: Intervals
 DIFICULDADE: Medium
@@ -3631,7 +5168,7 @@ function mergeIntervals(intervals) {
 console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]])); // Esperado: [[1,6],[8,10],[15,18]]
 // #endregion
 
-// #region EXERCÍCIO 086 — Inserir intervalo
+// #region EXERCÍCIO 118 — Inserir intervalo
 /*
 CATEGORIA: Intervals
 DIFICULDADE: Medium
@@ -3670,7 +5207,7 @@ function insertInterval(intervals, newInterval) {
 console.log(insertInterval([[1,3],[6,9]], [2,5])); // Esperado: [[1,5],[6,9]]
 // #endregion
 
-// #region EXERCÍCIO 087 — Mínimo de salas de reunião
+// #region EXERCÍCIO 119 — Mínimo de salas de reunião
 /*
 CATEGORIA: Intervals / Heap
 DIFICULDADE: Medium
@@ -3709,7 +5246,7 @@ function minMeetingRooms(intervals) {
 console.log(minMeetingRooms([[0,30],[5,10],[15,20]])); // Esperado: 2
 // #endregion
 
-// #region EXERCÍCIO 088 — Job Scheduling com lucro
+// #region EXERCÍCIO 120 — Job Scheduling com lucro
 /*
 CATEGORIA: Greedy / Binary Search / DP
 DIFICULDADE: Hard
@@ -3748,12 +5285,11 @@ function maxJobProfit(startTime, endTime, profit) {
 console.log(maxJobProfit([1,2,3,3],[3,4,5,6],[50,10,40,70])); // Esperado: 120
 // #endregion
 
-
 // ============================================================
 // 11 — GRAPHS
 // ============================================================
 
-// #region EXERCÍCIO 089 — Construir lista de adjacência
+// #region EXERCÍCIO 121 — Construir lista de adjacência
 /*
 CATEGORIA: Graph
 DIFICULDADE: Easy
@@ -3792,7 +5328,7 @@ function buildAdjacencyList(n, edges) {
 console.log(buildAdjacencyList(4, [[0,1],[0,2],[1,3]])); // Esperado: [[1,2],[0,3],[0],[1]]
 // #endregion
 
-// #region EXERCÍCIO 090 — DFS em grafo
+// #region EXERCÍCIO 122 — DFS em grafo
 /*
 CATEGORIA: Graph / DFS
 DIFICULDADE: Easy
@@ -3831,7 +5367,7 @@ function graphDFS(n, edges, start) {
 console.log(graphDFS(5, [[0,1],[0,2],[1,3],[2,4]], 0)); // Esperado: [0,1,3,2,4]
 // #endregion
 
-// #region EXERCÍCIO 091 — BFS em grafo
+// #region EXERCÍCIO 123 — BFS em grafo
 /*
 CATEGORIA: Graph / BFS
 DIFICULDADE: Easy
@@ -3870,7 +5406,7 @@ function graphBFS(n, edges, start) {
 console.log(graphBFS(5, [[0,1],[0,2],[1,3],[2,4]], 0)); // Esperado: [0,1,2,3,4]
 // #endregion
 
-// #region EXERCÍCIO 092 — Número de componentes conexos
+// #region EXERCÍCIO 124 — Número de componentes conexos
 /*
 CATEGORIA: Graph
 DIFICULDADE: Medium
@@ -3909,7 +5445,59 @@ function countComponents(n, edges) {
 console.log(countComponents(5, [[0,1],[1,2],[3,4]])); // Esperado: 2
 // #endregion
 
-// #region EXERCÍCIO 093 — Número de ilhas
+// #region EXERCÍCIO 125 — Verificar se grafo é bipartido
+/*
+CATEGORIA: Graph / BFS
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Praticar coloração de grafo e BFS em múltiplos componentes.
+
+ENTRADA DE EXEMPLO:
+isBipartite([[1,3],[0,2],[1,3],[0,2]])
+
+SAÍDA ESPERADA:
+true
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Colorir cada nó com 0/1; vizinhos devem receber a cor oposta e conflito implica não bipartido.
+
+EDGE CASES ESPERADOS:
+grafo desconexo; nó isolado; ciclo ímpar
+
+COMPLEXIDADE DE TEMPO:
+O(V + E)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(V + E) porque cada vértice e aresta é processado um número constante de vezes.
+
+COMPLEXIDADE DE ESPAÇO:
+O(V)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(V) porque cores e fila armazenam até V vértices.
+*/
+function isBipartite(graph) {
+  const color = Array(graph.length).fill(-1);
+  for (let start = 0; start < graph.length; start++) {
+    if (color[start] !== -1) continue;
+    color[start] = 0;
+    const q = [start]; let head = 0;
+    while (head < q.length) {
+      const u = q[head++];
+      for (const v of graph[u]) {
+        if (color[v] === -1) { color[v] = color[u] ^ 1; q.push(v); }
+        else if (color[v] === color[u]) return false;
+      }
+    }
+  }
+  return true;
+}
+
+console.log(isBipartite([[1,3],[0,2],[1,3],[0,2]])); // Esperado: true
+// #endregion
+
+// #region EXERCÍCIO 126 — Número de ilhas
 /*
 CATEGORIA: Graph / Grid DFS
 DIFICULDADE: Medium
@@ -3948,7 +5536,64 @@ function numIslands(grid) {
 console.log(numIslands([["1","1","0","0"],["1","0","0","1"],["0","0","1","1"]])); // Esperado: 2
 // #endregion
 
-// #region EXERCÍCIO 094 — Menor caminho em grafo não ponderado
+// #region EXERCÍCIO 127 — Rotting Oranges - BFS multi-source
+/*
+CATEGORIA: Graph / Grid BFS
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender BFS iniciando simultaneamente de múltiplas fontes.
+
+ENTRADA DE EXEMPLO:
+rottingOranges([[2,1,1],[1,1,0],[0,1,1]])
+
+SAÍDA ESPERADA:
+4
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Colocar todas as laranjas podres na fila no início e processar a expansão por níveis/minutos.
+
+EDGE CASES ESPERADOS:
+nenhuma fresca; fresca inalcançável; uma célula
+
+COMPLEXIDADE DE TEMPO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(r*c) porque cada célula entra na fila no máximo uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(r*c)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(r*c) porque a fila pode conter O(r*c) células.
+*/
+function rottingOranges(grid) {
+  const rows = grid.length, cols = grid[0]?.length || 0, q = [];
+  let fresh = 0, head = 0;
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    if (grid[r][c] === 2) q.push([r,c,0]);
+    else if (grid[r][c] === 1) fresh++;
+  }
+  let minutes = 0;
+  const dirs = [[1,0],[-1,0],[0,1],[0,-1]];
+  while (head < q.length) {
+    const [r,c,t] = q[head++];
+    minutes = Math.max(minutes, t);
+    for (const [dr,dc] of dirs) {
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nc >= 0 && nr < rows && nc < cols && grid[nr][nc] === 1) {
+        grid[nr][nc] = 2; fresh--; q.push([nr,nc,t+1]);
+      }
+    }
+  }
+  return fresh === 0 ? minutes : -1;
+}
+
+console.log(rottingOranges([[2,1,1],[1,1,0],[0,1,1]])); // Esperado: 4
+// #endregion
+
+// #region EXERCÍCIO 128 — Menor caminho em grafo não ponderado
 /*
 CATEGORIA: Graph / BFS
 DIFICULDADE: Medium
@@ -3987,7 +5632,7 @@ function shortestPathUnweighted(n, edges, source, target) {
 console.log(shortestPathUnweighted(6, [[0,1],[0,2],[1,3],[2,4],[4,5],[3,5]], 0, 5)); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 095 — Detectar ciclo em grafo não direcionado
+// #region EXERCÍCIO 129 — Detectar ciclo em grafo não direcionado
 /*
 CATEGORIA: Graph / DFS
 DIFICULDADE: Medium
@@ -4026,7 +5671,7 @@ function hasUndirectedCycle(n, edges) {
 console.log(hasUndirectedCycle(4, [[0,1],[1,2],[2,0],[2,3]])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 096 — Detectar ciclo em grafo direcionado
+// #region EXERCÍCIO 130 — Detectar ciclo em grafo direcionado
 /*
 CATEGORIA: Graph / DFS
 DIFICULDADE: Medium
@@ -4065,7 +5710,7 @@ function hasDirectedCycle(n, edges) {
 console.log(hasDirectedCycle(4, [[0,1],[1,2],[2,3],[3,1]])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 097 — Ordenação topológica
+// #region EXERCÍCIO 131 — Ordenação topológica
 /*
 CATEGORIA: Graph / Topological Sort
 DIFICULDADE: Medium
@@ -4104,7 +5749,7 @@ function topologicalSort(n, edges) {
 console.log(topologicalSort(4, [[0,1],[0,2],[1,3],[2,3]])); // Esperado: [0,1,2,3]
 // #endregion
 
-// #region EXERCÍCIO 098 — Course Schedule
+// #region EXERCÍCIO 132 — Course Schedule
 /*
 CATEGORIA: Graph / Topological Sort
 DIFICULDADE: Medium
@@ -4143,7 +5788,7 @@ function canFinishCourses(numCourses, prerequisites) {
 console.log(canFinishCourses(2, [[1,0]])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 099 — Dijkstra - menor caminho ponderado
+// #region EXERCÍCIO 133 — Dijkstra - menor caminho ponderado
 /*
 CATEGORIA: Graph / Dijkstra
 DIFICULDADE: Hard
@@ -4182,7 +5827,79 @@ function dijkstra(n, edges, source) {
 console.log(dijkstra(5, [[0,1,4],[0,2,1],[2,1,2],[1,3,1],[2,3,5],[3,4,3]], 0)); // Esperado: [0,3,1,4,7]
 // #endregion
 
-// #region EXERCÍCIO 100 — A* em grid
+// #region EXERCÍCIO 134 — Prim - Minimum Spanning Tree
+/*
+CATEGORIA: Graph / MST / Heap
+DIFICULDADE: Hard
+
+OBJETIVO DO EXERCÍCIO:
+Aprender uma segunda estratégia de MST, expandindo a árvore pela aresta mais barata.
+
+ENTRADA DE EXEMPLO:
+primMST(4, [[0,1,1],[0,2,4],[1,2,2],[1,3,5],[2,3,3]])
+
+SAÍDA ESPERADA:
+6
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Começar de um vértice e usar min-heap para sempre escolher a menor aresta que conecta um novo vértice.
+
+EDGE CASES ESPERADOS:
+um vértice; grafo desconexo; arestas paralelas
+
+COMPLEXIDADE DE TEMPO:
+O(E log V)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(E log V) porque cada aresta pode entrar no heap e operações do heap custam O(log V) em ordem assintótica típica.
+
+COMPLEXIDADE DE ESPAÇO:
+O(V + E)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(V + E) porque lista de adjacência, visited e heap armazenam vértices/arestas.
+*/
+function primMST(n, edges) {
+  if (n === 0) return 0;
+  const g = Array.from({ length: n }, () => []);
+  for (const [u,v,w] of edges) { g[u].push([v,w]); g[v].push([u,w]); }
+  const heap = [[0,0]], seen = Array(n).fill(false);
+  const push = item => {
+    heap.push(item); let i = heap.length - 1;
+    while (i) {
+      const p = Math.floor((i - 1) / 2);
+      if (heap[p][0] <= heap[i][0]) break;
+      [heap[p],heap[i]]=[heap[i],heap[p]]; i=p;
+    }
+  };
+  const pop = () => {
+    const root = heap[0], last = heap.pop();
+    if (heap.length) {
+      heap[0] = last; let i=0;
+      while (true) {
+        let s=i,l=i*2+1,r=l+1;
+        if (l<heap.length && heap[l][0]<heap[s][0]) s=l;
+        if (r<heap.length && heap[r][0]<heap[s][0]) s=r;
+        if (s===i) break;
+        [heap[i],heap[s]]=[heap[s],heap[i]]; i=s;
+      }
+    }
+    return root;
+  };
+  let total = 0, used = 0;
+  while (heap.length && used < n) {
+    const [w,u] = pop();
+    if (seen[u]) continue;
+    seen[u] = true; used++; total += w;
+    for (const [v,cost] of g[u]) if (!seen[v]) push([cost,v]);
+  }
+  return used === n ? total : null;
+}
+
+console.log(primMST(4, [[0,1,1],[0,2,4],[1,2,2],[1,3,5],[2,3,3]])); // Esperado: 6
+// #endregion
+
+// #region EXERCÍCIO 135 — A* em grid
 /*
 CATEGORIA: Graph / A*
 DIFICULDADE: Hard
@@ -4225,12 +5942,11 @@ function aStarGrid(grid, start, goal) {
 console.log(aStarGrid([[0,0,0],[1,1,0],[0,0,0]], [0,0], [2,2])); // Esperado: 4
 // #endregion
 
-
 // ============================================================
 // 12 — DYNAMIC PROGRAMMING
 // ============================================================
 
-// #region EXERCÍCIO 101 — Climbing Stairs
+// #region EXERCÍCIO 136 — Climbing Stairs
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Easy
@@ -4269,7 +5985,7 @@ function climbStairs(n) {
 console.log(climbStairs(5)); // Esperado: 8
 // #endregion
 
-// #region EXERCÍCIO 102 — House Robber
+// #region EXERCÍCIO 137 — House Robber
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4308,7 +6024,54 @@ function houseRobber(nums) {
 console.log(houseRobber([2,7,9,3,1])); // Esperado: 12
 // #endregion
 
-// #region EXERCÍCIO 103 — Coin Change - mínimo de moedas
+// #region EXERCÍCIO 138 — Best Time to Buy and Sell Stock com cooldown
+/*
+CATEGORIA: Dynamic Programming / State Machine
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender DP por estados: hold, sold e rest.
+
+ENTRADA DE EXEMPLO:
+stockWithCooldown([1,2,3,0,2])
+
+SAÍDA ESPERADA:
+3
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Em cada dia atualizar os melhores lucros para estar segurando ação, ter acabado de vender ou estar em descanso.
+
+EDGE CASES ESPERADOS:
+array vazio; preços decrescentes; um dia
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque cada dia atualiza um número constante de estados.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque mantém apenas os estados do dia anterior.
+*/
+function stockWithCooldown(prices) {
+  if (!prices.length) return 0;
+  let hold = -prices[0], sold = -Infinity, rest = 0;
+  for (let i = 1; i < prices.length; i++) {
+    const prevHold = hold, prevSold = sold, prevRest = rest;
+    hold = Math.max(prevHold, prevRest - prices[i]);
+    sold = prevHold + prices[i];
+    rest = Math.max(prevRest, prevSold);
+  }
+  return Math.max(sold, rest);
+}
+
+console.log(stockWithCooldown([1,2,3,0,2])); // Esperado: 3
+// #endregion
+
+// #region EXERCÍCIO 139 — Coin Change - mínimo de moedas
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4347,7 +6110,7 @@ function coinChange(coins, amount) {
 console.log(coinChange([1,2,5], 11)); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 104 — Número de formas de Coin Change
+// #region EXERCÍCIO 140 — Número de formas de Coin Change
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4386,7 +6149,7 @@ function coinChangeWays(coins, amount) {
 console.log(coinChangeWays([1,2,5], 5)); // Esperado: 4
 // #endregion
 
-// #region EXERCÍCIO 105 — Longest Increasing Subsequence
+// #region EXERCÍCIO 141 — Longest Increasing Subsequence
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4425,7 +6188,7 @@ function lengthOfLIS(nums) {
 console.log(lengthOfLIS([10,9,2,5,3,7,101,18])); // Esperado: 4
 // #endregion
 
-// #region EXERCÍCIO 106 — Longest Common Subsequence
+// #region EXERCÍCIO 142 — Longest Common Subsequence
 /*
 CATEGORIA: Dynamic Programming 2D
 DIFICULDADE: Medium
@@ -4464,7 +6227,7 @@ function longestCommonSubsequence(a, b) {
 console.log(longestCommonSubsequence("abcde", "ace")); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 107 — 0/1 Knapsack
+// #region EXERCÍCIO 143 — 0/1 Knapsack
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4503,7 +6266,7 @@ function knapsack01(weights, values, capacity) {
 console.log(knapsack01([1,3,4,5], [1,4,5,7], 7)); // Esperado: 9
 // #endregion
 
-// #region EXERCÍCIO 108 — Partition Equal Subset Sum
+// #region EXERCÍCIO 144 — Partition Equal Subset Sum
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4542,7 +6305,55 @@ function canPartition(nums) {
 console.log(canPartition([1,5,11,5])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 109 — Unique Paths
+// #region EXERCÍCIO 145 — Target Sum
+/*
+CATEGORIA: Dynamic Programming / HashMap
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Praticar DP de contagem quando cada elemento gera duas transições (+ e -).
+
+ENTRADA DE EXEMPLO:
+targetSumWays([1,1,1,1,1], 3)
+
+SAÍDA ESPERADA:
+5
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Manter um mapa soma -> quantidade de maneiras após processar cada número.
+
+EDGE CASES ESPERADOS:
+zeros; target negativo; nenhuma solução
+
+COMPLEXIDADE DE TEMPO:
+O(n*S)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n*S) porque em cada etapa percorre os estados de soma alcançáveis, limitados pela soma absoluta S.
+
+COMPLEXIDADE DE ESPAÇO:
+O(S)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(S) porque mantém mapas de estados de soma do passo atual.
+*/
+function targetSumWays(nums, target) {
+  let dp = new Map([[0,1]]);
+  for (const num of nums) {
+    const next = new Map();
+    for (const [sum,count] of dp) {
+      next.set(sum + num, (next.get(sum + num) || 0) + count);
+      next.set(sum - num, (next.get(sum - num) || 0) + count);
+    }
+    dp = next;
+  }
+  return dp.get(target) || 0;
+}
+
+console.log(targetSumWays([1,1,1,1,1], 3)); // Esperado: 5
+// #endregion
+
+// #region EXERCÍCIO 146 — Unique Paths
 /*
 CATEGORIA: Dynamic Programming 2D
 DIFICULDADE: Easy
@@ -4581,7 +6392,7 @@ function uniquePaths(m, n) {
 console.log(uniquePaths(3, 7)); // Esperado: 28
 // #endregion
 
-// #region EXERCÍCIO 110 — Minimum Path Sum
+// #region EXERCÍCIO 147 — Minimum Path Sum
 /*
 CATEGORIA: Dynamic Programming 2D
 DIFICULDADE: Medium
@@ -4620,7 +6431,7 @@ function minPathSum(grid) {
 console.log(minPathSum([[1,3,1],[1,5,1],[4,2,1]])); // Esperado: 7
 // #endregion
 
-// #region EXERCÍCIO 111 — Word Break
+// #region EXERCÍCIO 148 — Word Break
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4659,7 +6470,7 @@ function wordBreak(s, wordDict) {
 console.log(wordBreak("leetcode", ["leet","code"])); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 112 — Decode Ways
+// #region EXERCÍCIO 149 — Decode Ways
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Medium
@@ -4698,12 +6509,11 @@ function numDecodings(s) {
 console.log(numDecodings("226")); // Esperado: 3
 // #endregion
 
-
 // ============================================================
 // 13 — TRIE, DSU, BIT E ESTRUTURAS AVANÇADAS
 // ============================================================
 
-// #region EXERCÍCIO 113 — Trie - inserir e buscar palavras
+// #region EXERCÍCIO 150 — Trie - inserir e buscar palavras
 /*
 CATEGORIA: Trie
 DIFICULDADE: Medium
@@ -4742,7 +6552,7 @@ function trieOperations(operations) {
 console.log(trieOperations([["insert","cat"],["insert","car"],["search","cat"],["search","can"],["prefix","ca"]])); // Esperado: [true,false,true]
 // #endregion
 
-// #region EXERCÍCIO 114 — Union-Find - componentes após uniões
+// #region EXERCÍCIO 151 — Union-Find - componentes após uniões
 /*
 CATEGORIA: Disjoint Set Union
 DIFICULDADE: Medium
@@ -4781,7 +6591,7 @@ function unionFindComponents(n, unions) {
 console.log(unionFindComponents(5, [[0,1],[1,2],[3,4]])); // Esperado: 2
 // #endregion
 
-// #region EXERCÍCIO 115 — Single Number com XOR
+// #region EXERCÍCIO 152 — Single Number com XOR
 /*
 CATEGORIA: Bit Manipulation
 DIFICULDADE: Easy
@@ -4820,7 +6630,48 @@ function singleNumber(nums) {
 console.log(singleNumber([4,1,2,1,2])); // Esperado: 4
 // #endregion
 
-// #region EXERCÍCIO 116 — Contar bits 1
+// #region EXERCÍCIO 153 — Missing Number com XOR
+/*
+CATEGORIA: Bit Manipulation
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Aplicar propriedades de XOR para cancelar pares e encontrar o valor ausente.
+
+ENTRADA DE EXEMPLO:
+missingNumberXor([3,0,1])
+
+SAÍDA ESPERADA:
+2
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Fazer XOR entre todos os índices de 0..n e todos os valores; números presentes se cancelam.
+
+EDGE CASES ESPERADOS:
+ausente = 0; ausente = n; um elemento
+
+COMPLEXIDADE DE TEMPO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n) porque percorre o array uma vez.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque usa apenas um acumulador XOR.
+*/
+function missingNumberXor(nums) {
+  let x = nums.length;
+  for (let i = 0; i < nums.length; i++) x ^= i ^ nums[i];
+  return x;
+}
+
+console.log(missingNumberXor([3,0,1])); // Esperado: 2
+// #endregion
+
+// #region EXERCÍCIO 154 — Contar bits 1
 /*
 CATEGORIA: Bit Manipulation
 DIFICULDADE: Easy
@@ -4859,7 +6710,52 @@ function countSetBits(n) {
 console.log(countSetBits(13)); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 117 — Fenwick Tree - somas de prefixo
+// #region EXERCÍCIO 155 — Gerar subconjuntos com bitmask
+/*
+CATEGORIA: Bit Manipulation
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Relacionar bits de uma máscara às decisões incluir/não incluir elementos.
+
+ENTRADA DE EXEMPLO:
+subsetsBitmask([1,2,3])
+
+SAÍDA ESPERADA:
+[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Cada máscara de 0 até 2^n-1 representa um subconjunto; o bit i indica se nums[i] está presente.
+
+EDGE CASES ESPERADOS:
+array vazio; um elemento
+
+COMPLEXIDADE DE TEMPO:
+O(n*2^n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n*2^n) porque há 2^n máscaras e até n bits são testados por máscara.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(n) porque cada subconjunto temporário usa até n elementos, desconsiderando a saída.
+*/
+function subsetsBitmask(nums) {
+  const out = [];
+  for (let mask = 0; mask < (1 << nums.length); mask++) {
+    const subset = [];
+    for (let i = 0; i < nums.length; i++) if (mask & (1 << i)) subset.push(nums[i]);
+    out.push(subset);
+  }
+  return out;
+}
+
+console.log(subsetsBitmask([1,2,3])); // Esperado: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+// #endregion
+
+// #region EXERCÍCIO 156 — Fenwick Tree - somas de prefixo
 /*
 CATEGORIA: Fenwick Tree
 DIFICULDADE: Hard
@@ -4898,7 +6794,7 @@ function fenwickQueries(arr, operations) {
 console.log(fenwickQueries([1,2,3,4,5], [["sum",1,3],["add",2,5],["sum",1,3]])); // Esperado: [9,14]
 // #endregion
 
-// #region EXERCÍCIO 118 — Segment Tree - mínimo em intervalo
+// #region EXERCÍCIO 157 — Segment Tree - mínimo em intervalo
 /*
 CATEGORIA: Segment Tree
 DIFICULDADE: Hard
@@ -4937,7 +6833,7 @@ function segmentTreeMin(arr, operations) {
 console.log(segmentTreeMin([5,2,6,3,1,7], [["min",1,4],["set",4,8],["min",1,4]])); // Esperado: [1,2]
 // #endregion
 
-// #region EXERCÍCIO 119 — LRU Cache
+// #region EXERCÍCIO 158 — LRU Cache
 /*
 CATEGORIA: HashMap + Doubly Linked List
 DIFICULDADE: Hard
@@ -4976,7 +6872,7 @@ function lruCacheSimulation(capacity, operations) {
 console.log(lruCacheSimulation(2, [["put",1,1],["put",2,2],["get",1],["put",3,3],["get",2],["get",3]])); // Esperado: [1,-1,3]
 // #endregion
 
-// #region EXERCÍCIO 120 — KMP - encontrar padrão
+// #region EXERCÍCIO 159 — KMP - encontrar padrão
 /*
 CATEGORIA: String Algorithms / KMP
 DIFICULDADE: Hard
@@ -5015,12 +6911,67 @@ function kmpSearch(text, pattern) {
 console.log(kmpSearch("abxabcabcaby", "abcaby")); // Esperado: 6
 // #endregion
 
+// #region EXERCÍCIO 160 — Rabin-Karp - busca por rolling hash
+/*
+CATEGORIA: String Algorithms / Rolling Hash
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Aprender rolling hash para comparar janelas de string sem recalcular tudo.
+
+ENTRADA DE EXEMPLO:
+rabinKarpSearch("abracadabra", "cada")
+
+SAÍDA ESPERADA:
+4
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Calcular o hash do padrão e da primeira janela; atualizar o hash removendo o caractere que sai e adicionando o que entra.
+
+EDGE CASES ESPERADOS:
+padrão vazio; padrão maior; colisão de hash
+
+COMPLEXIDADE DE TEMPO:
+O(n + m) esperado; O(n*m) no pior caso
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+A complexidade é O(n + m) esperado; O(n*m) no pior caso porque rolling hash atualiza cada janela em O(1); muitas colisões podem forçar comparações O(m) em várias janelas.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+A estrutura auxiliar utilizada leva O(1) porque mantém apenas hashes e potências, sem estruturas proporcionais ao texto.
+*/
+function rabinKarpSearch(text, pattern) {
+  if (pattern.length === 0) return 0;
+  if (pattern.length > text.length) return -1;
+  const base = 256, mod = 1000000007;
+  let high = 1;
+  for (let i = 1; i < pattern.length; i++) high = (high * base) % mod;
+  let ph = 0, wh = 0;
+  for (let i = 0; i < pattern.length; i++) {
+    ph = (ph * base + pattern.charCodeAt(i)) % mod;
+    wh = (wh * base + text.charCodeAt(i)) % mod;
+  }
+  for (let start = 0; start <= text.length - pattern.length; start++) {
+    if (ph === wh && text.slice(start, start + pattern.length) === pattern) return start;
+    if (start < text.length - pattern.length) {
+      wh = (wh - (text.charCodeAt(start) * high) % mod + mod) % mod;
+      wh = (wh * base + text.charCodeAt(start + pattern.length)) % mod;
+    }
+  }
+  return -1;
+}
+
+console.log(rabinKarpSearch("abracadabra", "cada")); // Esperado: 4
+// #endregion
 
 // ============================================================
 // 14 — ALGORITMOS HARD / EXTREME HARD
 // ============================================================
 
-// #region EXERCÍCIO 121 — Bellman-Ford com detecção de ciclo negativo
+// #region EXERCÍCIO 161 — Bellman-Ford com detecção de ciclo negativo
 /*
 CATEGORIA: Graph / Bellman-Ford
 DIFICULDADE: Hard
@@ -5059,7 +7010,7 @@ function bellmanFord(n, edges, source) {
 console.log(bellmanFord(5, [[0,1,6],[0,2,7],[1,2,8],[1,3,5],[1,4,-4],[2,3,-3],[2,4,9],[3,1,-2],[4,3,7],[4,0,2]], 0)); // Esperado: {"dist":[0,2,7,4,-2],"negativeCycle":false}
 // #endregion
 
-// #region EXERCÍCIO 122 — Floyd-Warshall
+// #region EXERCÍCIO 162 — Floyd-Warshall
 /*
 CATEGORIA: Graph / All-Pairs Shortest Path
 DIFICULDADE: Hard
@@ -5098,7 +7049,7 @@ function floydWarshall(matrix) {
 console.log(floydWarshall([[0,3,null,7],[8,0,2,null],[5,null,0,1],[2,null,null,0]])); // Esperado: [[0,3,5,6],[5,0,2,3],[3,6,0,1],[2,5,7,0]]
 // #endregion
 
-// #region EXERCÍCIO 123 — Kosaraju - componentes fortemente conexas
+// #region EXERCÍCIO 163 — Kosaraju - componentes fortemente conexas
 /*
 CATEGORIA: Graph / SCC
 DIFICULDADE: Hard
@@ -5137,7 +7088,7 @@ function stronglyConnectedComponents(n, edges) {
 console.log(stronglyConnectedComponents(5, [[1,0],[0,2],[2,1],[0,3],[3,4]])); // Esperado: [[0,1,2],[3],[4]]
 // #endregion
 
-// #region EXERCÍCIO 124 — Kruskal - Minimum Spanning Tree
+// #region EXERCÍCIO 164 — Kruskal - Minimum Spanning Tree
 /*
 CATEGORIA: Graph / MST / DSU
 DIFICULDADE: Hard
@@ -5176,7 +7127,7 @@ function kruskalMST(n, edges) {
 console.log(kruskalMST(4, [[0,1,10],[0,2,6],[0,3,5],[1,3,15],[2,3,4]])); // Esperado: 19
 // #endregion
 
-// #region EXERCÍCIO 125 — Edit Distance
+// #region EXERCÍCIO 165 — Edit Distance
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Hard
@@ -5215,7 +7166,7 @@ function editDistance(a, b) {
 console.log(editDistance("horse", "ros")); // Esperado: 3
 // #endregion
 
-// #region EXERCÍCIO 126 — Regex Matching com . e *
+// #region EXERCÍCIO 166 — Regex Matching com . e *
 /*
 CATEGORIA: Dynamic Programming
 DIFICULDADE: Extreme Hard
@@ -5254,7 +7205,7 @@ function regexMatch(s, p) {
 console.log(regexMatch("aab", "c*a*b")); // Esperado: true
 // #endregion
 
-// #region EXERCÍCIO 127 — Burst Balloons
+// #region EXERCÍCIO 167 — Burst Balloons
 /*
 CATEGORIA: Interval Dynamic Programming
 DIFICULDADE: Extreme Hard
@@ -5293,7 +7244,7 @@ function burstBalloons(nums) {
 console.log(burstBalloons([3,1,5,8])); // Esperado: 167
 // #endregion
 
-// #region EXERCÍCIO 128 — Edmonds-Karp - Maximum Flow
+// #region EXERCÍCIO 168 — Edmonds-Karp - Maximum Flow
 /*
 CATEGORIA: Graph / Max Flow
 DIFICULDADE: Extreme Hard
@@ -5330,4 +7281,548 @@ function maxFlow(n, edges, source, sink) {
 }
 
 console.log(maxFlow(6, [[0,1,16],[0,2,13],[1,2,10],[2,1,4],[1,3,12],[3,2,9],[2,4,14],[4,3,7],[3,5,20],[4,5,4]], 0, 5)); // Esperado: 23
+// #endregion
+
+// ============================================================
+// 15 — MATA40 & MATA54 CONCEITOS ACADÊMICOS E DE BAIXO NÍVEL
+// ============================================================
+
+// #region EXERCÍCIO 169 — TAD Lista Sequencial com Limite e Shift
+/*
+CATEGORIA: Fundamentos / Listas Sequenciais
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Implementar o TAD clássico de Lista Sequencial (array estático com capacidade fixa),
+tratando Overflow na inserção e Underflow/índice inválido na remoção, com shift de elementos.
+
+ENTRADA DE EXEMPLO:
+const list = new StaticArrayList(3);
+list.insertAt(0, 10);
+list.insertAt(1, 20);
+list.insertAt(1, 15);
+list.removeAt(0);
+list.get(0)
+
+SAÍDA ESPERADA:
+15
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+O TAD Lista Sequencial usa um vetor de tamanho fixo (capacity) e um contador de elementos
+válidos (length). Inserir em um índice exige deslocar (shift) todos os elementos à direita
+do índice para abrir espaço, e remover exige deslocar os elementos à esquerda para fechar o
+buraco. Overflow ocorre quando length === capacity e tentamos inserir; underflow/índice
+inválido ocorre quando o índice de inserção/remoção está fora do intervalo [0, length].
+
+EDGE CASES ESPERADOS:
+lista cheia (overflow); índice inválido (underflow); remoção em lista vazia; inserção/remoção nas extremidades
+
+COMPLEXIDADE DE TEMPO:
+O(n) para insertAt/removeAt, O(1) para get/size
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+Inserir ou remover em um índice arbitrário exige deslocar, no pior caso, todos os n elementos
+à direita do índice afetado; get e size acessam posições/contadores diretamente.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1) auxiliar (O(n) para o vetor interno já alocado)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+Nenhuma estrutura auxiliar proporcional à entrada é criada; o shift é feito in-place dentro
+do próprio vetor de capacidade fixa.
+*/
+class StaticArrayList {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.data = new Array(capacity);
+    this.length = 0;
+  }
+
+  insertAt(index, val) {
+    if (this.length === this.capacity) throw new Error("Overflow: lista cheia");
+    if (index < 0 || index > this.length) throw new Error("Underflow: índice inválido");
+    for (let i = this.length; i > index; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+    this.data[index] = val;
+    this.length++;
+  }
+
+  removeAt(index) {
+    if (this.length === 0) throw new Error("Underflow: lista vazia");
+    if (index < 0 || index >= this.length) throw new Error("Underflow: índice inválido");
+    const removed = this.data[index];
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    this.data[this.length - 1] = undefined;
+    this.length--;
+    return removed;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) throw new Error("Underflow: índice inválido");
+    return this.data[index];
+  }
+
+  size() {
+    return this.length;
+  }
+}
+
+const list169 = new StaticArrayList(3);
+list169.insertAt(0, 10);
+list169.insertAt(1, 20);
+list169.insertAt(1, 15);
+list169.removeAt(0);
+console.log(list169.get(0)); // Esperado: 15
+// #endregion
+
+// #region EXERCÍCIO 170 — Duas Pilhas em um Único Vetor (Two Stacks)
+/*
+CATEGORIA: Stack
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Implementar duas pilhas independentes compartilhando um único vetor de capacidade fixa,
+crescendo a partir de extremidades opostas, detectando overflow quando os topos se encontram.
+
+ENTRADA DE EXEMPLO:
+const ts = new TwoStacksOneArray(5);
+ts.push1(1);
+ts.push1(2);
+ts.push2(9);
+ts.pop1()
+
+SAÍDA ESPERADA:
+2
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+A pilha 1 cresce da esquerda para a direita (top1 começa em -1 e é incrementado), e a pilha 2
+cresce da direita para a esquerda (top2 começa em capacity e é decrementado). Como ambas
+compartilham o mesmo vetor, elas só colidem (overflow) quando top1 + 1 === top2, ou seja, o
+espaço livre entre as duas pilhas se esgotou. Isso aproveita melhor o espaço do que duas
+pilhas de tamanho fixo separado.
+
+EDGE CASES ESPERADOS:
+overflow (top1 + 1 === top2); pop em pilha vazia; capacidade 0 ou 1
+
+COMPLEXIDADE DE TEMPO:
+O(1) para push1/push2/pop1/pop2
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+Cada operação apenas lê/escreve um índice e incrementa/decrementa um ponteiro de topo, sem
+necessidade de percorrer o vetor.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1) auxiliar (O(n) para o vetor compartilhado já alocado)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+As duas pilhas reutilizam o mesmo vetor de tamanho fixo, sem alocação adicional proporcional
+à entrada.
+*/
+class TwoStacksOneArray {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.data = new Array(capacity);
+    this.top1 = -1;
+    this.top2 = capacity;
+  }
+
+  push1(val) {
+    if (this.top1 + 1 === this.top2) throw new Error("Overflow: pilhas se encontraram");
+    this.data[++this.top1] = val;
+  }
+
+  push2(val) {
+    if (this.top1 + 1 === this.top2) throw new Error("Overflow: pilhas se encontraram");
+    this.data[--this.top2] = val;
+  }
+
+  pop1() {
+    if (this.top1 === -1) throw new Error("Underflow: pilha 1 vazia");
+    return this.data[this.top1--];
+  }
+
+  pop2() {
+    if (this.top2 === this.capacity) throw new Error("Underflow: pilha 2 vazia");
+    return this.data[this.top2++];
+  }
+}
+
+const ts170 = new TwoStacksOneArray(5);
+ts170.push1(1);
+ts170.push1(2);
+ts170.push2(9);
+console.log(ts170.pop1()); // Esperado: 2
+// #endregion
+
+// #region EXERCÍCIO 171 — Fila Circular Sequencial com Aritmética Modular
+/*
+CATEGORIA: Queue
+DIFICULDADE: Easy
+
+OBJETIVO DO EXERCÍCIO:
+Implementar uma fila circular usando um vetor de tamanho fixo, controlando front, rear e
+count com aritmética modular para reaproveitar os espaços liberados.
+
+ENTRADA DE EXEMPLO:
+const q = new CircularArrayQueue(3);
+q.enqueue(1);
+q.enqueue(2);
+q.dequeue();
+q.enqueue(3);
+q.enqueue(4);
+q.dequeue()
+
+SAÍDA ESPERADA:
+2
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Em vez de deslocar elementos a cada dequeue (como uma fila ingênua baseada em array), usamos
+os índices front e rear com aritmética modular (rear + 1) % capacity para "dar a volta" no
+vetor e reaproveitar espaços liberados pelos dequeues anteriores. Um contador count guarda
+quantos elementos estão realmente ocupados, permitindo distinguir fila cheia de fila vazia
+mesmo quando front === rear.
+
+EDGE CASES ESPERADOS:
+fila cheia (isFull); fila vazia (isEmpty); wrap-around do índice rear/front
+
+COMPLEXIDADE DE TEMPO:
+O(1) para enqueue/dequeue/isFull/isEmpty
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+Cada operação apenas atualiza índices via aritmética modular e o contador count, sem
+percorrer o vetor.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1) auxiliar (O(n) para o vetor interno já alocado)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+O vetor de capacidade fixa é reaproveitado indefinidamente; não há alocação adicional
+proporcional ao número de operações.
+*/
+class CircularArrayQueue {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.data = new Array(capacity);
+    this.front = 0;
+    this.rear = -1;
+    this.count = 0;
+  }
+
+  enqueue(val) {
+    if (this.isFull()) throw new Error("Overflow: fila cheia");
+    this.rear = (this.rear + 1) % this.capacity;
+    this.data[this.rear] = val;
+    this.count++;
+  }
+
+  dequeue() {
+    if (this.isEmpty()) throw new Error("Underflow: fila vazia");
+    const val = this.data[this.front];
+    this.data[this.front] = undefined;
+    this.front = (this.front + 1) % this.capacity;
+    this.count--;
+    return val;
+  }
+
+  isFull() {
+    return this.count === this.capacity;
+  }
+
+  isEmpty() {
+    return this.count === 0;
+  }
+}
+
+const q171 = new CircularArrayQueue(3);
+q171.enqueue(1);
+q171.enqueue(2);
+q171.dequeue();
+q171.enqueue(3);
+q171.enqueue(4);
+console.log(q171.dequeue()); // Esperado: 2
+// #endregion
+
+// #region EXERCÍCIO 172 — Lista Simplesmente Encadeada com Nó Header
+/*
+CATEGORIA: Linked List
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Implementar uma lista simplesmente encadeada ordenada usando um nó header (sentinela)
+fictício, evitando tratamentos especiais para inserção/remoção na cabeça da lista.
+
+ENTRADA DE EXEMPLO:
+const l = new HeaderSinglyLinkedList();
+l.insertSorted(5);
+l.insertSorted(2);
+l.insertSorted(8);
+l.toArray()
+
+SAÍDA ESPERADA:
+[2, 5, 8]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+O nó header é um nó sentinela fictício (val: null) que sempre existe e aponta via next para
+o primeiro elemento real (ou null se a lista estiver vazia). Isso elimina a necessidade de um
+caso especial para "inserir/remover na cabeça", pois toda inserção/remoção é tratada como
+"inserir/remover depois do nó anterior", incluindo quando esse nó anterior é o próprio
+header. Para inserção ordenada, percorremos a partir do header até encontrar o ponto correto
+(prev.next === null || prev.next.val >= val).
+
+EDGE CASES ESPERADOS:
+lista vazia; valor duplicado; remoção de valor inexistente; remoção do único elemento
+
+COMPLEXIDADE DE TEMPO:
+O(n) para insertSorted/removeVal/search, O(n) para toArray
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+No pior caso é necessário percorrer todos os n nós da lista para encontrar a posição de
+inserção, o valor a remover/buscar, ou para copiar todos os valores em um array.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1) auxiliar para insertSorted/removeVal/search; O(n) para toArray
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+As operações de navegação usam apenas ponteiros auxiliares constantes; toArray aloca um
+array proporcional ao número de elementos da lista.
+*/
+class HeaderSinglyLinkedList {
+  constructor() {
+    this.header = { val: null, next: null };
+  }
+
+  insertSorted(val) {
+    let prev = this.header;
+    while (prev.next !== null && prev.next.val < val) {
+      prev = prev.next;
+    }
+    prev.next = { val, next: prev.next };
+  }
+
+  removeVal(val) {
+    let prev = this.header;
+    while (prev.next !== null && prev.next.val !== val) {
+      prev = prev.next;
+    }
+    if (prev.next === null) return false;
+    prev.next = prev.next.next;
+    return true;
+  }
+
+  search(val) {
+    let node = this.header.next;
+    while (node !== null) {
+      if (node.val === val) return true;
+      node = node.next;
+    }
+    return false;
+  }
+
+  toArray() {
+    const result = [];
+    let node = this.header.next;
+    while (node !== null) {
+      result.push(node.val);
+      node = node.next;
+    }
+    return result;
+  }
+}
+
+const l172 = new HeaderSinglyLinkedList();
+l172.insertSorted(5);
+l172.insertSorted(2);
+l172.insertSorted(8);
+console.log(l172.toArray()); // Esperado: [2, 5, 8]
+// #endregion
+
+// #region EXERCÍCIO 173 — Lista Duplamente Encadeada Circular com Nó Header
+/*
+CATEGORIA: Linked List
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Implementar uma lista duplamente encadeada circular com nó header (sentinela), de modo
+que header.next aponte para o primeiro elemento e header.prev para o último.
+
+ENTRADA DE EXEMPLO:
+const l = new HeaderCircularDoublyLinkedList();
+l.insertTail(1);
+l.insertTail(2);
+l.insertHead(0);
+l.toArray()
+
+SAÍDA ESPERADA:
+[0, 1, 2]
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+O header é um nó sentinela cujo prev e next apontam inicialmente para ele mesmo, formando um
+círculo vazio. header.next é sempre o primeiro elemento real e header.prev é sempre o último,
+o que torna insertHead e insertTail simétricas (ambas são "inserir entre dois nós vizinhos") e
+elimina casos especiais para lista vazia/com um elemento, pois o header sempre existe no
+círculo. A remoção também é uniforme: basta reconectar node.prev.next = node.next e
+node.next.prev = node.prev.
+
+EDGE CASES ESPERADOS:
+lista vazia; remoção do único elemento; remoção de valor inexistente; circularidade (header conectado nas duas pontas)
+
+COMPLEXIDADE DE TEMPO:
+O(1) para insertHead/insertTail; O(n) para remove/toArray
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+Inserir na cabeça ou na cauda usa referências diretas (header.next/header.prev), sem
+percorrer a lista; remover por valor e converter para array exigem, no pior caso, percorrer
+todos os n nós.
+
+COMPLEXIDADE DE ESPAÇO:
+O(1) auxiliar para insertHead/insertTail/remove; O(n) para toArray
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+As operações de encadeamento usam apenas ponteiros auxiliares constantes; toArray aloca um
+array proporcional ao número de elementos.
+*/
+class HeaderCircularDoublyLinkedList {
+  constructor() {
+    const header = { val: null, prev: null, next: null };
+    header.prev = header;
+    header.next = header;
+    this.header = header;
+  }
+
+  insertHead(val) {
+    const node = { val, prev: this.header, next: this.header.next };
+    this.header.next.prev = node;
+    this.header.next = node;
+  }
+
+  insertTail(val) {
+    const node = { val, prev: this.header.prev, next: this.header };
+    this.header.prev.next = node;
+    this.header.prev = node;
+  }
+
+  remove(val) {
+    let node = this.header.next;
+    while (node !== this.header) {
+      if (node.val === val) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        return true;
+      }
+      node = node.next;
+    }
+    return false;
+  }
+
+  toArray() {
+    const result = [];
+    let node = this.header.next;
+    while (node !== this.header) {
+      result.push(node.val);
+      node = node.next;
+    }
+    return result;
+  }
+}
+
+const l173 = new HeaderCircularDoublyLinkedList();
+l173.insertTail(1);
+l173.insertTail(2);
+l173.insertHead(0);
+console.log(l173.toArray()); // Esperado: [0, 1, 2]
+// #endregion
+
+// #region EXERCÍCIO 174 — Percursos Iterativos em Árvore Binária usando Pilha
+/*
+CATEGORIA: Binary Tree
+DIFICULDADE: Medium
+
+OBJETIVO DO EXERCÍCIO:
+Implementar os percursos pré-ordem, em-ordem e pós-ordem em árvore binária de forma
+estritamente iterativa (sem recursão), utilizando pilhas explícitas (arrays).
+
+ENTRADA DE EXEMPLO:
+const root = { val: 1, left: { val: 2, left: null, right: null }, right: { val: 3, left: null, right: null } };
+treeTraversalsIterative(root)
+
+SAÍDA ESPERADA:
+{ preorder: [1, 2, 3], inorder: [2, 1, 3], postorder: [2, 3, 1] }
+
+RACIOCÍNIO / EXPLICAÇÃO EM PAIR PROGRAMMING:
+Pré-ordem: usamos uma pilha explícita, empilhando a raiz e, a cada iteração, desempilhando um
+nó, visitando-o, e empilhando primeiro o filho direito e depois o esquerdo (para que o
+esquerdo seja processado antes). Em-ordem: mantemos um ponteiro "atual" e uma pilha; descemos
+sempre pela esquerda empilhando os nós visitados, e ao não haver mais filho esquerdo,
+desempilhamos, visitamos e movemos para a direita. Pós-ordem: usamos duas pilhas — a primeira
+gera uma ordem "raiz, direita, esquerda" (inverso do pós-ordem) empilhando na segunda pilha, e
+ao final invertemos a segunda pilha para obter "esquerda, direita, raiz".
+
+EDGE CASES ESPERADOS:
+árvore vazia (null); árvore só com raiz; árvore desbalanceada (apenas filhos à esquerda ou à direita)
+
+COMPLEXIDADE DE TEMPO:
+O(n) para os três percursos combinados
+
+JUSTIFICATIVA DA COMPLEXIDADE DE TEMPO:
+Cada nó da árvore é visitado e empilhado/desempilhado um número constante de vezes em cada um
+dos três percursos, resultando em tempo linear no número de nós.
+
+COMPLEXIDADE DE ESPAÇO:
+O(n) no pior caso (árvore degenerada em lista)
+
+JUSTIFICATIVA DA COMPLEXIDADE DE ESPAÇO:
+As pilhas explícitas podem armazenar até n nós simultaneamente quando a árvore é desbalanceada
+(por exemplo, todos os nós apenas com filho à esquerda ou à direita), além dos arrays de
+resultado que também são proporcionais a n.
+*/
+function treeTraversalsIterative(root) {
+  const preorder = [];
+  if (root) {
+    const stack = [root];
+    while (stack.length > 0) {
+      const node = stack.pop();
+      preorder.push(node.val);
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
+    }
+  }
+
+  const inorder = [];
+  {
+    const stack = [];
+    let current = root;
+    while (current !== null || stack.length > 0) {
+      while (current !== null) {
+        stack.push(current);
+        current = current.left;
+      }
+      current = stack.pop();
+      inorder.push(current.val);
+      current = current.right;
+    }
+  }
+
+  const postorder = [];
+  if (root) {
+    const stack1 = [root];
+    const stack2 = [];
+    while (stack1.length > 0) {
+      const node = stack1.pop();
+      stack2.push(node);
+      if (node.left) stack1.push(node.left);
+      if (node.right) stack1.push(node.right);
+    }
+    while (stack2.length > 0) {
+      postorder.push(stack2.pop().val);
+    }
+  }
+
+  return { preorder, inorder, postorder };
+}
+
+const root174 = { val: 1, left: { val: 2, left: null, right: null }, right: { val: 3, left: null, right: null } };
+console.log(treeTraversalsIterative(root174)); // Esperado: { preorder: [1, 2, 3], inorder: [2, 1, 3], postorder: [2, 3, 1] }
 // #endregion
