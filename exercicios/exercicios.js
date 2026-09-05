@@ -7009,3 +7009,34 @@ function treeTraversalsIterative(root) {
 const root174 = { val: 1, left: { val: 2, left: null, right: null }, right: { val: 3, left: null, right: null } };
 console.log(treeTraversalsIterative(root174)); // Esperado: { preorder: [1, 2, 3], inorder: [2, 1, 3], postorder: [2, 3, 1] }
 // #endregion
+
+// #region EXERCÍCIO 175 — Árvore AVL — Rotações e Rebalanceamento
+/* CATEGORIA: Binary Tree / AVL | DIFICULDADE: Hard | OBJETIVO: Implementar uma AVL com rotações e rebalanceamento. */
+class AVLTree { constructor() {} getHeight(node) {} getBalance(node) {} rotateRight(y) {} rotateLeft(x) {} insert(val) {} toInOrder() {} }
+const avl175 = new AVLTree(); [30,20,10,25,28].forEach((value) => avl175.insert(value)); console.log(avl175.toInOrder()); // Esperado: [10, 20, 25, 28, 30]
+// #endregion
+// #region EXERCÍCIO 176 — Heapsort In-Place em Vetor
+/* CATEGORIA: Sorting / Heap | DIFICULDADE: Medium | OBJETIVO: Ordenar in-place usando Max-Heap e heapify. */
+function heapSort(arr) {}
+console.log(heapSort([4,10,3,5,1])); // Esperado: [1, 3, 4, 5, 10]
+// #endregion
+// #region EXERCÍCIO 177 — Tabela Hash com Endereçamento Aberto
+/* CATEGORIA: Hash Table | DIFICULDADE: Medium | OBJETIVO: Implementar sondagem linear com tombstones. */
+class OpenAddressingHashTable { constructor(capacity) {} insert(key,val) {} search(key) {} remove(key) {} }
+const table177=new OpenAddressingHashTable(5); table177.insert("ana",10); console.log(table177.search("ana")); // Esperado: 10
+// #endregion
+// #region EXERCÍCIO 178 — Hashing Extensível (Diretório e Páginas)
+/* CATEGORIA: Advanced Data Structures / Hashing | DIFICULDADE: Hard | OBJETIVO: Implementar diretório e páginas expansíveis. */
+class ExtendibleHashing { constructor(pageCapacity) {} insert(key) {} search(key) {} }
+const hash178=new ExtendibleHashing(2); [1,3,5,7].forEach((key)=>hash178.insert(key)); console.log(hash178.search(5)); // Esperado: true
+// #endregion
+// #region EXERCÍCIO 179 — Árvore B — Inserção e Split de Nó
+/* CATEGORIA: Advanced Data Structures / B-Tree | DIFICULDADE: Hard | OBJETIVO: Implementar inserção, busca e splitChild em Árvore B. */
+class BTree { constructor(t) {} search(key) {} insert(key) {} splitChild(parent,index) {} }
+const tree179=new BTree(2); [10,20,5,6,12,30,7,17].forEach((key)=>tree179.insert(key)); console.log(tree179.search(6)); // Esperado: true
+// #endregion
+// #region EXERCÍCIO 180 — Codificação de Huffman (Compressão de Dados)
+/* CATEGORIA: Greedy / Compression | DIFICULDADE: Hard | OBJETIVO: Construir códigos de Huffman, codificar e decodificar um texto. */
+function huffmanEncoding(text) {}
+console.log(huffmanEncoding("banana")); // Esperado: decodedText igual a "banana"
+// #endregion
